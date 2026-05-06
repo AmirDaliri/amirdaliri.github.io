@@ -1,16 +1,19 @@
-/* Amir Daliri portfolio — vanilla JS, no jQuery */
+/* Amir Daliri portfolio — vanilla JS, dark-first redesign */
 
 (() => {
   const $  = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-  /* ── Theme toggle (light <-> dark) ─────────────────────── */
   const root = document.documentElement;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = window.matchMedia('(hover: none)').matches;
+
+  /* ── Theme toggle ──────────────────────────────────────── */
   const stored = localStorage.getItem('theme');
   if (stored) root.setAttribute('data-theme', stored);
 
   $('[data-theme-toggle]')?.addEventListener('click', () => {
-    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     root.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
   });
@@ -40,11 +43,8 @@
 
   /* ── Scroll spy ────────────────────────────────────────── */
   const navLinks = $$('.primary-nav a[href^="#"]');
-  const sectionIds = navLinks
-    .map(a => a.getAttribute('href'))
-    .filter(href => href && href.length > 1);
-  const sections = sectionIds
-    .map(id => document.querySelector(id))
+  const sections = navLinks
+    .map(a => document.querySelector(a.getAttribute('href')))
     .filter(Boolean);
 
   if (sections.length && 'IntersectionObserver' in window) {
@@ -72,7 +72,6 @@
         });
         chip.classList.add('is-active');
         chip.setAttribute('aria-selected', 'true');
-
         const filter = chip.dataset.filter;
         cards.forEach(card => {
           const match = filter === 'all' || card.dataset.cat === filter;
@@ -83,9 +82,9 @@
   }
 
   /* ── Reveal on scroll ──────────────────────────────────── */
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !reducedMotion) {
     const targets = $$(
-      '.section__header, .about__lead, .about__pillars li, .app-card, .work-card, .stack-card, .timeline__item, .education-card, .contact'
+      '.section__header, .studio-card, .work-card, .stack-card, .timeline__item, .education-card, .contact'
     );
     targets.forEach(el => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
@@ -95,10 +94,83 @@
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
     targets.forEach(el => io.observe(el));
   }
 
+  /* ── iPhone hero cycler ────────────────────────────────── */
+  const cycler = $('[data-iphone-cycle]');
+  if (cycler && !reducedMotion) {
+    const slides = $$('[data-slide]', cycler);
+    let i = 0;
+    setInterval(() => {
+      slides[i].classList.remove('is-on');
+      i = (i + 1) % slides.length;
+      slides[i].classList.add('is-on');
+    }, 2400);
+  }
+
+  /* ── Custom cursor + magnetic effect ───────────────────── */
+  if (!isTouch && !reducedMotion) {
+    const dot  = $('.cursor-dot');
+    const ring = $('.cursor-ring');
+    let mx = innerWidth / 2, my = innerHeight / 2;
+    let dx = mx, dy = my;       // dot pos
+    let rx = mx, ry = my;       // ring pos
+
+    document.addEventListener('mousemove', (e) => {
+      mx = e.clientX; my = e.clientY;
+    }, { passive: true });
+
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const tick = () => {
+      dx = lerp(dx, mx, 0.55);
+      dy = lerp(dy, my, 0.55);
+      rx = lerp(rx, mx, 0.18);
+      ry = lerp(ry, my, 0.18);
+      dot.style.transform  = `translate3d(${dx - 3}px, ${dy - 3}px, 0)`;
+      ring.style.transform = `translate3d(${rx - 18}px, ${ry - 18}px, 0)`;
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    // hover state on interactive elements
+    const hoverables = 'a, button, [data-magnet], .chip';
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest(hoverables)) {
+        ring.classList.add('is-hover');
+        dot.classList.add('is-hover');
+      }
+    });
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest(hoverables)) {
+        ring.classList.remove('is-hover');
+        dot.classList.remove('is-hover');
+      }
+    });
+
+    // magnetic pull on [data-magnet]
+    $$('[data-magnet]').forEach(el => {
+      let raf;
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height / 2;
+        const tx = (e.clientX - cx) * 0.25;
+        const ty = (e.clientY - cy) * 0.25;
+        cancelAnimationFrame(raf);
+        raf = requestAnimationFrame(() => {
+          el.style.transform = `translate(${tx}px, ${ty}px)`;
+        });
+      });
+      el.addEventListener('mouseleave', () => {
+        cancelAnimationFrame(raf);
+        el.style.transform = '';
+      });
+    });
+  }
+
   /* ── Year stamp ────────────────────────────────────────── */
-  $('[data-year]').textContent = new Date().getFullYear();
+  const yearEl = $('[data-year]');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
