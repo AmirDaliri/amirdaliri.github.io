@@ -1,11 +1,188 @@
-/* Native interactions, with no animation library or scroll hijacking. */
+/* Cached geometry and transform-only motion; native document scrolling. */
 (() => {
   const $ = (s) => document.querySelector(s);
   const $$ = (s) => [...document.querySelectorAll(s)];
   const root = document.documentElement;
   const preference = matchMedia("(prefers-reduced-motion: reduce)");
+  const pointer = matchMedia("(hover: hover) and (pointer: fine)");
   const motion = $("[data-motion-toggle]");
-  let paused = preference.matches;
+  const hero = $(".hero");
+  const scene = $(".orbital-scene");
+  const chapterDock = $(".chapter-dock");
+  const chapters = $$(".chapter-dock a[href^='#']").map((link) => ({
+    link,
+    section: $(link.getAttribute("href")),
+    top: 0,
+  }));
+  const launch = $(".hero-app__rock");
+  const landing = $(".scene-product--rock");
+  const cards = $$(".product-scene").map((el) => ({
+    el,
+    top: 0,
+    left: 0,
+    width: 0,
+    height: 0,
+    x: 0,
+    y: 0,
+    tx: 0,
+    ty: 0,
+  }));
+  let paused = preference.matches,
+    frame = 0,
+    previousTime = 0,
+    measurePending = true;
+  let geometry = null,
+    lastChapter = null,
+    inFlight = false;
+  let heroX = 0,
+    heroY = 0,
+    targetX = 0,
+    targetY = 0;
+  const flight = document.createElement("img");
+  flight.src = launch.src;
+  flight.alt = "";
+  flight.className = "flight-screen";
+  flight.setAttribute("aria-hidden", "true");
+  flight.hidden = true;
+  document.body.append(flight);
+  // Paint the dust once, then let the compositor drift the resulting layer.
+  const canvas = document.createElement("canvas");
+  canvas.className = "star-canvas";
+  scene.prepend(canvas);
+  const ctx = canvas.getContext("2d");
+  const stars = Array.from({ length: 60 }, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    r: 0.4 + Math.random(),
+    a: 0.15 + Math.random() * 0.4,
+  }));
+  function paintStars(width, height) {
+    if (!ctx || (canvas.width === width && canvas.height === height)) return;
+    canvas.width = width;
+    canvas.height = height;
+    stars.forEach((star) => {
+      ctx.fillStyle = `rgba(235,211,174,${star.a})`;
+      ctx.beginPath();
+      ctx.arc(star.x * width, star.y * height, star.r, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+  function schedule(measure = false) {
+    measurePending ||= measure;
+    if (!frame && !document.hidden) frame = requestAnimationFrame(render);
+  }
+  function measure() {
+    const y = scrollY;
+    const h = hero.getBoundingClientRect();
+    const a = launch.getBoundingClientRect();
+    const b = landing.getBoundingClientRect();
+    // Both assets are square, although the destination's object-fit box is not.
+    const size = Math.min(b.width, b.height);
+    geometry = {
+      height: h.height,
+      width: h.width,
+      startX: a.left,
+      startY: a.top + y,
+      startSize: a.width,
+      endX: b.left + (b.width - size) / 2,
+      endY: b.top + y + (b.height - size) / 2,
+      endSize: size,
+      endScroll: Math.max(1, b.top + y - innerHeight * 0.13),
+    };
+    cards.forEach((card) => {
+      const r = card.el.getBoundingClientRect();
+      Object.assign(card, {
+        top: r.top + y,
+        left: r.left,
+        width: r.width,
+        height: r.height,
+      });
+    });
+    chapters.forEach((chapter) => {
+      chapter.top = chapter.section.getBoundingClientRect().top + y;
+    });
+    paintStars(Math.round(h.width), Math.round(h.height));
+    measurePending = false;
+  }
+  function render(now) {
+    frame = 0;
+    if (measurePending || !geometry) measure();
+    const y = scrollY;
+    const dt = previousTime ? Math.min(now - previousTime, 50) : 16.7;
+    previousTime = now;
+    const follow = 1 - Math.exp(-dt / 95);
+    heroX += (targetX - heroX) * follow;
+    heroY += (targetY - heroY) * follow;
+    const progress = Math.min(1, Math.max(0, y / geometry.height));
+    hero.style.setProperty("--hero-progress", progress);
+    scene.style.setProperty("--depth-x", `${paused ? 0 : heroX}px`);
+    scene.style.setProperty("--depth-y", `${paused ? 0 : heroY}px`);
+    scene.style.setProperty("--hero-travel", `${paused ? 0 : progress * 70}px`);
+    const t = Math.min(1, Math.max(0, y / geometry.endScroll));
+    const flying =
+      !paused &&
+      innerWidth > 760 &&
+      launch.complete &&
+      launch.naturalWidth > 0 &&
+      t < 1;
+    if (flying !== inFlight) {
+      inFlight = flying;
+      flight.hidden = !flying;
+      launch.classList.toggle("screen-in-flight", flying);
+      landing.classList.toggle("screen-in-flight", flying);
+    }
+    if (flying) {
+      const e = t * t * (3 - 2 * t),
+        mix = (a, b) => a + (b - a) * e;
+      const x = mix(geometry.startX, geometry.endX);
+      const top = mix(geometry.startY, geometry.endY - y);
+      const scale = mix(geometry.startSize, geometry.endSize) / 960;
+      flight.style.transform = `translate3d(${x}px,${top}px,0) scale(${scale})`;
+    }
+    const dockHidden = y < geometry.height * 0.75;
+    if (chapterDock.hidden !== dockHidden) chapterDock.hidden = dockHidden;
+    let current = chapters[0];
+    chapters.forEach((chapter) => {
+      if (chapter.top <= y + innerHeight * 0.45) current = chapter;
+    });
+    if (current !== lastChapter) {
+      chapters.forEach((chapter) => {
+        if (chapter === current)
+          chapter.link.setAttribute("aria-current", "location");
+        else chapter.link.removeAttribute("aria-current");
+      });
+      lastChapter = current;
+    }
+    let settling = Math.abs(targetX - heroX) + Math.abs(targetY - heroY) > 0.03;
+    cards.forEach((card) => {
+      card.x += (card.tx - card.x) * follow;
+      card.y += (card.ty - card.y) * follow;
+      settling ||=
+        Math.abs(card.tx - card.x) + Math.abs(card.ty - card.y) > 0.03;
+      const top = card.top - y;
+      if (top > innerHeight || top + card.height < 0) return;
+      const shift = paused
+        ? 0
+        : Math.max(
+            -25,
+            Math.min(25, (innerHeight / 2 - top - card.height / 2) * 0.04),
+          );
+      card.el.style.setProperty("--scene-shift", `${shift}px`);
+      card.el.style.setProperty("--art-x", `${paused ? 0 : card.x * 18}px`);
+      card.el.style.setProperty("--art-y", `${paused ? 0 : card.y * 12}px`);
+      card.el.style.setProperty("--art-tilt", `${paused ? 0 : card.x * -9}deg`);
+      card.el.style.setProperty(
+        "--light-x",
+        `${(card.x + 0.5) * card.width - 325}px`,
+      );
+      card.el.style.setProperty(
+        "--light-y",
+        `${(card.y + 0.5) * card.height - 325}px`,
+      );
+    });
+    if (settling && !paused) schedule();
+    else previousTime = 0;
+  }
   function updateMotion() {
     root.dataset.motion = paused ? "off" : "on";
     motion.setAttribute("aria-pressed", String(paused));
@@ -14,157 +191,83 @@
       paused ? "Enable ambient motion" : "Pause ambient motion",
     );
     motion.innerHTML = `<span aria-hidden="true">${paused ? "▷" : "Ⅱ"}</span> Motion`;
-    if (paused) $$(".reveal").forEach((el) => el.classList.add("is-in"));
-  }
-  // Render the star field only while the opening is visible and motion is enabled.
-  const hero = $(".hero");
-  const scene = $(".orbital-scene");
-  const canvas = document.createElement("canvas");
-  canvas.className = "star-canvas";
-  scene.prepend(canvas);
-  const ctx = canvas.getContext("2d");
-  let width = 0,
-    height = 0,
-    frame = 0,
-    last = 0,
-    elapsed = 0;
-  let inView = true;
-  const stars = Array.from({ length: 75 }, () => ({
-    x: Math.random(),
-    y: Math.random(),
-    size: 0.4 + Math.random() * 1.2,
-    speed: 0.3 + Math.random() * 0.7,
-    phase: Math.random() * Math.PI * 2,
-  }));
-  function resizeScene() {
-    width = hero.clientWidth;
-    height = hero.clientHeight;
-    const ratio = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-    ctx?.setTransform(ratio, 0, 0, ratio, 0, 0);
-    if (paused) drawStars(0);
-  }
-  function drawStars(delta) {
-    if (!ctx) return;
-    elapsed += delta;
-    ctx.clearRect(0, 0, width, height);
-    for (const star of stars) {
-      star.x = (star.x + delta * star.speed * 0.006) % 1;
-      const alpha =
-        0.2 + 0.45 * (0.5 + 0.5 * Math.sin(elapsed * 0.7 + star.phase));
-      ctx.fillStyle = `rgba(235,211,174,${alpha})`;
-      ctx.beginPath();
-      ctx.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2);
-      ctx.fill();
+    if (paused) {
+      $$(".reveal").forEach((el) => el.classList.add("is-in"));
+      targetX = targetY = heroX = heroY = 0;
+      cards.forEach((card) => {
+        card.x = card.y = card.tx = card.ty = 0;
+        card.el.classList.remove("is-inspected");
+      });
     }
-    // A brief distant meteor, every nine seconds; kept behind the copy.
-    const travel = elapsed % 9;
-    if (!paused && travel < 1.4) {
-      const x = width * (0.48 + travel * 0.27),
-        y = height * (0.12 + travel * 0.19);
-      const trail = ctx.createLinearGradient(x - 90, y - 45, x, y);
-      trail.addColorStop(0, "rgba(235,211,174,0)");
-      trail.addColorStop(1, "rgba(235,211,174,.65)");
-      ctx.strokeStyle = trail;
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.moveTo(x - 90, y - 45);
-      ctx.lineTo(x, y);
-      ctx.stroke();
-    }
+    schedule();
   }
-  function tick(now) {
-    drawStars(last ? Math.min((now - last) / 1000, 0.05) : 0);
-    last = now;
-    frame = requestAnimationFrame(tick);
-  }
-  function syncScene() {
-    cancelAnimationFrame(frame);
-    last = 0;
-    if (!paused && inView && !document.hidden && ctx)
-      frame = requestAnimationFrame(tick);
-    else drawStars(0);
-    scene.style.animationPlayState = paused ? "paused" : "running";
-  }
-  resizeScene();
-  new ResizeObserver(resizeScene).observe(hero);
-  new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting;
-    syncScene();
-  }).observe(hero);
-  document.addEventListener("visibilitychange", syncScene);
-  // One scroll update per animation frame; the document keeps native scrolling.
-  let scrollFrame = 0;
-  const productScenes = $$(".product-scene");
-  function updateDepth() {
-    scrollFrame = 0;
-    const progress = Math.min(
-      1,
-      Math.max(0, -hero.getBoundingClientRect().top / hero.offsetHeight),
-    );
-    hero.style.setProperty("--hero-progress", String(progress));
-    scene.style.setProperty(
-      "--hero-travel",
-      paused ? "0px" : `${progress * 130}px`,
-    );
-    productScenes.forEach((card) => {
-      const rect = card.getBoundingClientRect();
-      if (rect.bottom > 0 && rect.top < innerHeight) {
-        const shift = paused
-          ? 0
-          : Math.max(
-              -35,
-              Math.min(
-                35,
-                (innerHeight / 2 - rect.top - rect.height / 2) * 0.06,
-              ),
-            );
-        card.style.setProperty("--scene-shift", `${shift}px`);
-      }
-    });
-  }
-  window.addEventListener(
-    "scroll",
-    () => {
-      if (!scrollFrame) scrollFrame = requestAnimationFrame(updateDepth);
-    },
-    { passive: true },
+  window.addEventListener("scroll", () => schedule(), { passive: true });
+  window.addEventListener("resize", () => schedule(true), { passive: true });
+  new ResizeObserver(() => schedule(true)).observe($("main"));
+  launch.addEventListener("load", () => schedule(true));
+  landing.addEventListener("load", () => schedule(true));
+  document.fonts.ready.then(() => schedule(true));
+  document.addEventListener("visibilitychange", () => {
+    root.classList.toggle("page-hidden", document.hidden);
+    if (document.hidden) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      previousTime = 0;
+    } else schedule(true);
+  });
+  const visibility = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) =>
+        entry.target.classList.toggle(
+          "motion-offscreen",
+          !entry.isIntersecting,
+        ),
+      ),
+    { rootMargin: "100px" },
   );
-  updateDepth();
-  const pointer = matchMedia("(hover: hover) and (pointer: fine)");
+  visibility.observe(hero);
+  cards.forEach((card) => visibility.observe(card.el));
   hero.addEventListener(
     "pointermove",
-    (e) => {
-      if (paused || !pointer.matches) return;
-      const bounds = hero.getBoundingClientRect();
-      scene.style.setProperty(
-        "--depth-x",
-        `${(e.clientX / bounds.width - 0.5) * -32}px`,
-      );
-      scene.style.setProperty(
-        "--depth-y",
-        `${((e.clientY - bounds.top) / bounds.height - 0.5) * -22}px`,
-      );
+    (event) => {
+      if (paused || !pointer.matches || !geometry) return;
+      targetX = (event.clientX / geometry.width - 0.5) * -22;
+      targetY = ((event.clientY + scrollY) / geometry.height - 0.5) * -16;
+      schedule();
     },
     { passive: true },
   );
   hero.addEventListener("pointerleave", () => {
-    scene.style.setProperty("--depth-x", "0px");
-    scene.style.setProperty("--depth-y", "0px");
+    targetX = targetY = 0;
+    schedule();
   });
-  updateMotion();
-  syncScene();
+  cards.forEach((card) => {
+    card.el.addEventListener(
+      "pointermove",
+      (event) => {
+        if (paused || !pointer.matches || !card.width) return;
+        card.tx = (event.clientX - card.left) / card.width - 0.5;
+        card.ty = (event.clientY + scrollY - card.top) / card.height - 0.5;
+        card.el.classList.add("is-inspected");
+        schedule();
+      },
+      { passive: true },
+    );
+    card.el.addEventListener("pointerleave", () => {
+      card.tx = card.ty = 0;
+      card.el.classList.remove("is-inspected");
+      schedule();
+    });
+  });
   motion.addEventListener("click", () => {
     paused = !paused;
     updateMotion();
-    syncScene();
   });
-  preference.addEventListener("change", (e) => {
-    paused = e.matches;
+  preference.addEventListener("change", (event) => {
+    paused = event.matches;
     updateMotion();
-    syncScene();
   });
+  updateMotion();
   const toggle = $("[data-nav-toggle]");
   const nav = $(".primary-nav");
   function closeNav() {

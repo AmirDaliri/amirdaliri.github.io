@@ -86,25 +86,37 @@
           <div class="lens-flare"></div>
         </div>
         <div class="hero-vignette" aria-hidden="true"></div>
-        <div class="container hero__inner">
-          <div class="hero__eyebrow">
-            <span>AMIR DALIRI / INDEPENDENT iOS ENGINEER</span
-            ><span class="hero__edition">SELECTED WORKS — VOL. 2026</span>
+        <div class="hero-app hero-app--pos" aria-hidden="true">
+          <div class="hero-app__phone">
+            <img src="img/cinematic/pocketpos-screen.png" alt="" />
           </div>
+          <span>POCKETPOS / BUILT TO SELL</span>
+        </div>
+        <div class="hero-app hero-app--rock" aria-hidden="true">
+          <img
+            class="hero-app__rock"
+            src="img/asapps/screens/asrockid-banner.png"
+            alt=""
+          /><span>AS ROCK ID / BUILT TO DISCOVER</span>
+        </div>
+        <div class="container hero__inner">
           <div class="hero__coordinates" aria-hidden="true">
             <span>41°00′ N<br />28°58′ E</span
             ><span>IDEAS INTO ORBIT<br />ISTANBUL → EVERYWHERE</span>
           </div>
           <div class="hero__title-wrap">
-            <span class="hero__kicker">ENGINEERING × INTUITION</span>
+            <span class="hero__craft-mark" aria-hidden="true">&lt;/&gt;</span>
+            <span class="hero__kicker"
+              >SENIOR iOS ENGINEER · AS APPS FOUNDER</span
+            >
             <h1 class="hero__title">
-              <span>BEYOND</span><em>the ordinary.</em>
+              <span>Engineering apps.</span><em>Shaping experiences.</em>
             </h1>
           </div>
           <div class="hero__bottom">
             <p class="hero__lead">
-              I’m Amir. I build native apps<br />that turn complexity into
-              <em>feeling.</em>
+              From the first line of Swift<br />to the experience in
+              <em>your hand.</em>
             </p>
             <a class="explore-orbit" href="#studio"
               ><span>ENTER THE<br />COLLECTION</span
@@ -120,41 +132,11 @@
           <div class="hero__foot">
             <a href="#studio"
               ><span aria-hidden="true">↓</span> SCROLL TO EXPLORE</a
-            ><span>CRAFTED ON EARTH. BUILT TO GO FURTHER.</span
+            ><span>SWIFT · SWIFTUI · NATIVE BY DESIGN</span
             ><span>01 / INTRODUCTION</span>
           </div>
         </div>
         <div class="hero-progress" aria-hidden="true"></div>
-      </section>
-      <div class="credits-strip">
-        <div class="container">
-          <span class="credits-label">A FEW PLACES<br />I’VE LEFT MY MARK</span
-          ><span>Turkcell</span><span>Skullcandy</span><span>NEC</span
-          ><span>N Kolay</span><span>Bragi</span><span>Coca-Cola İçecek</span>
-        </div>
-      </div>
-      <section class="manifesto-scene">
-        <div class="manifesto container">
-          <span class="eyebrow">A LITTLE ABOUT MY GRAVITY</span>
-          <p>
-            Good engineering<br />is invisible.<br /><em
-              >Great experiences<br />aren’t.</em
-            >
-          </p>
-          <div class="manifesto__aside">
-            <span class="manifesto__asterisk" aria-hidden="true">✳</span>
-            <p>
-              I live where engineering meets intuition. Nine years building for
-              banks, audio brands, and millions of everyday moments. Now,
-              bringing that same obsession to my own independent studio.
-            </p>
-            <div class="manifesto__stats">
-              <span><b>9+</b>Years of craft</span
-              ><span><b>20+</b>Apps shipped</span
-              ><span><b>09</b>Studio releases</span>
-            </div>
-          </div>
-        </div>
       </section>
       <!-- ─── ASAPPS STUDIO ────────────────────────────────────────── -->
       <section class="section section--studio" id="studio">
@@ -227,15 +209,22 @@
                 <span class="scene-cta"
                   >Explore AS Rock ID <span aria-hidden="true">↗</span></span
                 >
+                <p class="scene-role">
+                  Independent product · Design &amp; iOS engineering
+                </p>
               </div>
               <img
                 class="scene-product scene-product--rock"
                 src="img/asapps/screens/asrockid-banner.png"
                 alt="AS Rock ID identification, mineral composition and collection screens"
                 loading="lazy"
-              /><span class="scene-bottomline"
-                >ROCK &amp; MINERAL IDENTIFICATION / iOS + iPadOS</span
-              >
+              />
+              <div class="scene-specs">
+                <span><small>THE IDEA</small>Identify</span
+                ><span><small>THE ENGINEERING</small>AI-powered discovery</span
+                ><span><small>THE PLATFORM</small>iPhone + iPad</span
+                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
+              </div>
             </a>
             <a
               class="product-scene product-scene--family"
@@ -262,15 +251,23 @@
                 <span class="scene-cta"
                   >Meet FamilyBrief <span aria-hidden="true">↗</span></span
                 >
+                <p class="scene-role">
+                  Independent product · On-device family planning
+                </p>
               </div>
               <img
                 class="scene-product scene-product--family"
                 src="img/cinematic/familybrief-scene.png"
                 alt="FamilyBrief illustrated family organizer"
                 loading="lazy"
-              /><span class="scene-bottomline"
-                >PRIVATE BY DESIGN / MADE FOR iPHONE</span
-              ></a
+              />
+              <div class="scene-specs">
+                <span><small>THE IDEA</small>Organize</span
+                ><span
+                  ><small>THE ENGINEERING</small>On-device intelligence</span
+                ><span><small>THE PLATFORM</small>iPhone</span
+                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
+              </div></a
             >
             <a
               class="product-scene product-scene--pos"
@@ -298,6 +295,9 @@
                 <span class="scene-cta"
                   >Discover PocketPOS <span aria-hidden="true">↗</span></span
                 >
+                <p class="scene-role">
+                  Independent product · Offline iPhone &amp; iPad register
+                </p>
               </div>
               <div class="pos-device">
                 <img
@@ -306,9 +306,12 @@
                   loading="lazy"
                 />
               </div>
-              <span class="scene-bottomline"
-                >FULLY OFFLINE / iOS + iPadOS</span
-              ></a
+              <div class="scene-specs">
+                <span><small>THE IDEA</small>Sell</span
+                ><span><small>THE ENGINEERING</small>Works fully offline</span
+                ><span><small>THE PLATFORM</small>iPhone + iPad</span
+                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
+              </div></a
             >
           </div>
           <div class="catalog-label">
@@ -592,6 +595,36 @@
         </div>
       </section>
 
+      <div class="credits-strip">
+        <div class="container">
+          <span class="credits-label">A FEW PLACES<br />I’VE LEFT MY MARK</span
+          ><span>Turkcell</span><span>Skullcandy</span><span>NEC</span
+          ><span>N Kolay</span><span>Bragi</span><span>Coca-Cola İçecek</span>
+        </div>
+      </div>
+      <section class="manifesto-scene">
+        <div class="manifesto container">
+          <span class="eyebrow">A LITTLE ABOUT MY GRAVITY</span>
+          <p>
+            Good engineering<br />is invisible.<br /><em
+              >Great experiences<br />aren’t.</em
+            >
+          </p>
+          <div class="manifesto__aside">
+            <span class="manifesto__asterisk" aria-hidden="true">✳</span>
+            <p>
+              I live where engineering meets intuition. Nine years building for
+              banks, audio brands, and millions of everyday moments. Now,
+              bringing that same obsession to my own independent studio.
+            </p>
+            <div class="manifesto__stats">
+              <span><b>9+</b>Years of craft</span
+              ><span><b>20+</b>Apps shipped</span
+              ><span><b>09</b>Studio releases</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <!-- ─── CLIENT WORK ──────────────────────────────────────────── -->
       <section class="section section--work" id="work">
         <div class="container">
@@ -1440,6 +1473,9 @@
           </div>
         </div>
 
+        <div class="signature" aria-hidden="true">
+          <span>AMIR</span><em>DALIRI</em><span class="signature__star">✳</span>
+        </div>
         <div class="site-footer__bottom">
           <span
             >© <span data-year>2025</span> Amir Daliri. Built in Istanbul, with
@@ -1450,6 +1486,15 @@
       </div>
     </footer>
 
+    <nav class="chapter-dock" aria-label="Page chapters" hidden>
+      <a class="chapter-dock__home" href="#top" aria-label="Back to top">AD</a
+      ><span class="chapter-dock__divider" aria-hidden="true"></span
+      ><a href="#studio">Studio</a><a href="#work">Work</a
+      ><a href="#experience">Journey</a
+      ><a class="chapter-dock__contact" href="#contact"
+        >Let’s talk <span aria-hidden="true">↗</span></a
+      >
+    </nav>
     <script src="js/main.js" defer></script>
   </body>
 </html>
