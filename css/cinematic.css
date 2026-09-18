@@ -1831,3 +1831,126 @@ body {
     opacity: 0;
   }
 }
+/* Official storefront previews, framed without cropping the app screenshots. */
+.filter-bar {
+  flex-wrap: wrap;
+}
+.retail-art {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  aspect-ratio: 1.6;
+  overflow: hidden;
+  padding: 24px;
+  background: #edf0f3;
+  color: #172c43;
+}
+.retail-art--sochic {
+  background: #e4dcd4;
+  color: #42352e;
+}
+.retail-art__brand {
+  width: 30%;
+  flex: none;
+  position: relative;
+  z-index: 1;
+}
+.retail-art__brand > img {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: none;
+}
+.retail-art__brand > span {
+  display: block;
+  font-size: 21px;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-top: 18px;
+}
+.retail-art__brand > small {
+  display: block;
+  font: 7px var(--mono);
+  letter-spacing: 1.2px;
+  margin-top: 13px;
+  opacity: 0.6;
+}
+.retail-art__screens {
+  height: 100%;
+  display: flex;
+  gap: 12px;
+  min-width: 0;
+  align-items: center;
+}
+.retail-art__screens img {
+  height: 100%;
+  width: auto;
+  max-width: 50%;
+  object-fit: contain;
+  filter: none;
+  box-shadow: 0 12px 22px #17263620;
+  transition: transform 0.5s;
+}
+.retail-art__screens img:last-child {
+  transform: translateY(15px);
+}
+.retail-art:hover .retail-art__screens img:first-child {
+  transform: translateY(-5px);
+}
+.retail-art:hover .retail-art__screens img:last-child {
+  transform: translateY(8px);
+}
+.work-card--retail .work-card__body:after {
+  display: none;
+}
+.work-store-links {
+  display: flex;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.work-store-links a {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  border: 1px solid #ffffff30;
+  border-radius: 25px;
+  padding: 8px 13px;
+  font-size: 10px;
+  transition: background 0.2s;
+}
+.work-store-links a:hover {
+  background: #ffffff12;
+}
+@media (max-width: 1100px) {
+  .retail-art {
+    padding: 18px;
+    gap: 15px;
+  }
+  .retail-art__brand > span {
+    font-size: 17px;
+  }
+  .retail-art__brand > img {
+    width: 42px;
+    height: 42px;
+  }
+  .retail-art__screens {
+    gap: 8px;
+  }
+}
+@media (max-width: 760px) {
+  .retail-art {
+    padding: 20px;
+  }
+  .retail-art__brand > span {
+    font-size: 17px;
+  }
+  .retail-art__brand > small {
+    font-size: 6px;
+  }
+  .work-store-links a {
+    font-size: 11px;
+    padding: 9px 14px;
+  }
+}
