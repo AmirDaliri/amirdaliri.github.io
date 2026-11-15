@@ -1,21 +1,21 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0b0c0d" />
+    <meta name="theme-color" content="#0a0a0c" />
 
-    <title>Amir Daliri — Senior iOS Engineer · Studio Founder</title>
+    <title>Amir Daliri — Senior iOS Engineer · Founder of As Apps</title>
     <meta
       name="description"
-      content="Amir Daliri — senior iOS engineer with 9+ years shipping native apps for banks, telcos, audio brands, and his own product studio As Apps. Based in Istanbul."
+      content="Amir Daliri — senior iOS engineer with 10 years shipping native apps for banks, telcos, audio brands, and his own product studio As Apps. Based in Istanbul."
     />
     <meta name="author" content="Amir Daliri" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Amir Daliri — Senior iOS Engineer" />
     <meta
       property="og:description"
-      content="9+ years building native iOS apps. Founder of As Apps studio."
+      content="10 years building native iOS apps. Founder of As Apps studio."
     />
     <meta property="og:image" content="img/guy.jpg" />
 
@@ -23,1584 +23,1120 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap"
       rel="stylesheet"
     />
-
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/cinematic.css" />
-    <link rel="preload" as="image" href="img/cinematic/eclipse.jpg" />
+    <link rel="stylesheet" href="css/site.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip" href="#main">Skip to content</a>
 
-    <div class="grain" aria-hidden="true"></div>
-    <!-- ─── HEADER ───────────────────────────────────────────────── -->
-    <header class="site-header" data-header>
-      <div class="container site-header__row">
-        <a href="#top" class="brand" aria-label="Amir Daliri — home">
-          <span class="brand__mark" aria-hidden="true">AD</span>
-          <span class="brand__name">Amir Daliri</span>
-        </a>
-
-        <nav class="primary-nav" aria-label="Primary">
-          <a href="#studio">Studio</a>
-          <a href="#work">Work</a>
-          <a href="#stack">Stack</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
-
-        <div class="site-header__actions">
-          <button
-            type="button"
-            class="motion-toggle"
-            data-motion-toggle
-            aria-pressed="false"
-            aria-label="Pause ambient motion"
-          >
-            <span aria-hidden="true">Ⅱ</span> Motion
-          </button>
-          <a href="#contact" class="btn btn--ghost btn--sm" data-magnet
-            >Get in touch</a
-          >
-          <button
-            type="button"
-            class="nav-toggle"
-            data-nav-toggle
-            aria-label="Open menu"
-            aria-expanded="false"
-          >
-            <span></span><span></span><span></span>
-          </button>
-        </div>
+    <!-- ─── DYNAMIC ISLAND NAV ───────────────────────────────────── -->
+    <nav class="island" data-island aria-label="Primary">
+      <button
+        type="button"
+        class="island__bar"
+        data-island-toggle
+        aria-expanded="false"
+        aria-controls="island-links"
+      >
+        <span class="island__avatar" data-island-avatar aria-hidden="true"
+          >AD</span
+        >
+        <span class="island__label" data-island-label>Amir Daliri</span>
+        <svg
+          class="island__ring"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="9" data-island-ring pathLength="100" />
+        </svg>
+        <span class="visually-hidden">Toggle navigation</span>
+      </button>
+      <div class="island__links" id="island-links">
+        <a href="#studio">Studio</a>
+        <a href="#work">Work</a>
+        <a href="#stack">Stack</a>
+        <a href="#experience">Journey</a>
+        <a href="#contact" class="island__cta">Contact</a>
       </div>
+    </nav>
+
+    <header class="top">
+      <a href="#top" class="top__brand">
+        Amir Daliri<span>iOS engineer</span>
+      </a>
+      <a href="#contact" class="top__cta"
+        ><span class="dot" aria-hidden="true"></span>Available for select
+        projects</a
+      >
     </header>
 
     <main id="main">
       <!-- ─── HERO ─────────────────────────────────────────────────── -->
-      <section class="hero" id="top">
-        <div class="orbital-scene" aria-hidden="true">
-          <div class="eclipse-art"></div>
-          <div class="eclipse-glow"></div>
-          <div class="lens-flare"></div>
-        </div>
-        <div class="hero-vignette" aria-hidden="true"></div>
-        <div class="hero-app hero-app--pos" aria-hidden="true">
-          <div class="hero-app__phone">
-            <img src="img/cinematic/pocketpos-screen.png" alt="" />
-          </div>
-          <span>POCKETPOS / BUILT TO SELL</span>
-        </div>
-        <div class="hero-app hero-app--rock" aria-hidden="true">
-          <img
-            class="hero-app__rock"
-            src="img/asapps/screens/asrockid-banner.png"
-            alt=""
-          /><span>AS ROCK ID / BUILT TO DISCOVER</span>
-        </div>
-        <div class="container hero__inner">
-          <div class="hero__coordinates" aria-hidden="true">
-            <span>41°00′ N<br />28°58′ E</span
-            ><span>IDEAS INTO ORBIT<br />ISTANBUL → EVERYWHERE</span>
-          </div>
-          <div class="hero__title-wrap">
-            <span class="hero__craft-mark" aria-hidden="true">&lt;/&gt;</span>
-            <span class="hero__kicker"
-              >SENIOR iOS ENGINEER · AS APPS FOUNDER</span
-            >
-            <h1 class="hero__title">
-              <span>Engineering apps.</span><em>Shaping experiences.</em>
-            </h1>
-          </div>
-          <div class="hero__bottom">
-            <p class="hero__lead">
-              From the first line of Swift<br />to the experience in
-              <em>your hand.</em>
+      <section class="hero" id="top" data-chapter="Amir Daliri">
+        <div class="hero__glow" aria-hidden="true"></div>
+        <div class="wrap hero__grid">
+          <div class="hero__copy">
+            <p class="eyebrow hero__in">
+              Senior iOS engineer · Founder of As Apps · Istanbul
             </p>
-            <a class="explore-orbit" href="#studio"
-              ><span>ENTER THE<br />COLLECTION</span
-              ><span class="explore-orbit__arrow" aria-hidden="true">↘</span></a
-            >
-            <div class="hero__side">
-              <span class="status-dot"></span> Available for select projects<br /><span
-                class="hero__location"
-                >Senior iOS Engineer · Founder, As Apps</span
+            <h1 class="hero__title">
+              <span class="line"><span>Ten years</span></span>
+              <span class="line"><span>of iOS.</span></span>
+              <span class="line line--accent"><span>One Home</span></span>
+              <span class="line line--accent"><span>Screen.</span></span>
+            </h1>
+            <p class="hero__lead hero__in">
+              I’m Amir Daliri. I’ve shipped 20+ native apps for banks, telcos
+              and audio brands, plus nine of my own at As Apps, with a tenth on
+              the way. They all live on this phone.
+              <strong>Go on, tap one.</strong>
+            </p>
+            <div class="hero__cta hero__in">
+              <a class="btn btn--solid" href="#contact"
+                >Start a conversation <span aria-hidden="true">→</span></a
               >
+              <a class="btn btn--line" href="#work">See client work</a>
             </div>
           </div>
-          <div class="hero__foot">
-            <a href="#studio"
-              ><span aria-hidden="true">↓</span> SCROLL TO EXPLORE</a
-            ><span>SWIFT · SWIFTUI · NATIVE BY DESIGN</span
-            ><span>01 / INTRODUCTION</span>
+
+          <div class="hero__stage">
+            <div class="phone" data-phone>
+              <span class="phone__btn phone__btn--action"></span>
+              <span class="phone__btn phone__btn--up"></span>
+              <span class="phone__btn phone__btn--down"></span>
+              <span class="phone__btn phone__btn--power"></span>
+              <div class="phone__screen">
+                <div class="ios-status" aria-hidden="true">
+                  <span class="ios-status__time" data-clock>9:41</span>
+                  <span class="ios-status__island"></span>
+                  <span class="ios-status__icons">
+                    <svg viewBox="0 0 18 12" width="18" height="12">
+                      <rect x="0" y="8" width="3" height="4" rx=".8" />
+                      <rect x="5" y="5.5" width="3" height="6.5" rx=".8" />
+                      <rect x="10" y="3" width="3" height="9" rx=".8" />
+                      <rect x="15" y="0" width="3" height="12" rx=".8" />
+                    </svg>
+                    <svg viewBox="0 0 16 12" width="16" height="12">
+                      <path
+                        d="M8 2.3c2.3 0 4.4.9 6 2.4l1-1.1A10.3 10.3 0 0 0 8 .8C5.3.8 2.9 1.8 1 3.6l1 1.1a8.7 8.7 0 0 1 6-2.4Zm0 3.4c1.4 0 2.700.5 3.700 1.400l1-1.100A7 7 0 0 0 8 4.200a7 7 0 0 0-4.700 1.800l1 1.100A5.500 5.500 0 0 1 8 5.700Zm0 3.300c.700 0 1.300.300 1.800.700L8 11.800 6.200 9.700C6.700 9.300 7.300 9 8 9Z"
+                      />
+                    </svg>
+                    <svg viewBox="0 0 26 12" width="26" height="12">
+                      <rect
+                        x=".5"
+                        y=".5"
+                        width="22"
+                        height="11"
+                        rx="3.2"
+                        fill="none"
+                        stroke="currentColor"
+                        opacity=".45"
+                      />
+                      <rect x="2" y="2" width="19" height="8" rx="2" />
+                      <rect
+                        x="23.600"
+                        y="4"
+                        width="1.800"
+                        height="4"
+                        rx=".9"
+                        opacity=".5"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <!-- Home Screen -->
+                <div class="ios-home" data-home>
+                  <div class="ios-widget">
+                    <div class="ios-widget__studio">
+                      <img
+                        src="img/asapps/asapps-logo.png"
+                        alt=""
+                        width="320"
+                        height="305"
+                      />
+                      <b>As Apps</b>
+                      <span>9 live · 1 in the making</span>
+                    </div>
+                    <div class="ios-widget__clock">
+                      <span>Istanbul</span>
+                      <b data-clock>9:41</b>
+                      <span class="ios-widget__ok"
+                        ><i></i>Available</span
+                      >
+                    </div>
+                  </div>
+
+                  <ul class="ios-grid" aria-label="As Apps products">
+                    <li>
+                      <button type="button" class="ios-app" data-app="authkit">
+                        <img src="img/asapps/authkit.png" alt="" width="320" height="320" />
+                        <span>Auth Kit</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="rockid">
+                        <img src="img/asapps/asrockid.png" alt="" width="320" height="320" />
+                        <span>Rock ID</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="remote">
+                        <img src="img/asapps/asremote.png" alt="" width="320" height="320" />
+                        <span>AS Remote</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="cleaner">
+                        <img src="img/asapps/ascleaner.png" alt="" width="320" height="320" />
+                        <span>AS Cleaner</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="croncraft">
+                        <img src="img/asapps/croncraft.png" alt="" width="320" height="320" />
+                        <span>CronCraft</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="asvpn">
+                        <img src="img/asapps/asvpn.png" alt="" width="320" height="320" />
+                        <span>ASvpn</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="receipt">
+                        <img src="img/asapps/receiptrescue.png" alt="" width="320" height="320" />
+                        <span>Receipts</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="familybrief">
+                        <img src="img/asapps/familybrief.png" alt="" width="160" height="160" />
+                        <span>FamilyBrief</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app" data-app="pocketpos">
+                        <img src="img/asapps/pocketpos.png" alt="" width="1024" height="1024" />
+                        <span>PocketPOS</span>
+                      </button>
+                    </li>
+                    <li>
+                      <button type="button" class="ios-app ios-app--soon" data-app="sleep">
+                        <img src="img/asapps/sleephealth.png" alt="" width="320" height="320" />
+                        <span>Sleep</span>
+                      </button>
+                    </li>
+                  </ul>
+
+                  <div class="ios-hint" aria-hidden="true">Tap an app</div>
+
+                  <div class="ios-dock">
+                    <a
+                      class="ios-dockapp ios-dockapp--mail"
+                      href="mailto:amir.daliri@icloud.com"
+                      aria-label="Email Amir"
+                    >
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                          d="M3 7.500A2.500 2.500 0 0 1 5.500 5h13A2.500 2.500 0 0 1 21 7.500v9a2.500 2.500 0 0 1-2.500 2.500h-13A2.500 2.500 0 0 1 3 16.500v-9Zm2.200-.300 6.200 5.100c.350.290.850.290 1.200 0l6.200-5.100"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.700"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      class="ios-dockapp ios-dockapp--in"
+                      href="https://www.linkedin.com/in/amirdalirii/"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="LinkedIn"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          d="M6.940 5.500a1.940 1.940 0 1 1-3.880 0 1.940 1.940 0 0 1 3.880 0ZM3.300 8.800h3.400V20H3.300V8.800Zm5.600 0h3.250v1.530h.050c.450-.860 1.560-1.770 3.210-1.770 3.430 0 4.070 2.260 4.070 5.200V20h-3.400v-5.530c0-1.320-.020-3.020-1.840-3.020-1.840 0-2.120 1.440-2.120 2.920V20H8.900V8.800Z"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      class="ios-dockapp ios-dockapp--gh"
+                      href="https://github.com/AmirDaliri"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="GitHub"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          d="M12 .5C5.65.5.5 5.65.5 12c0 5.080 3.290 9.390 7.860 10.910.580.100.790-.250.790-.560 0-.280-.010-1.020-.020-2-3.200.700-3.870-1.540-3.870-1.540-.520-1.320-1.270-1.670-1.270-1.670-1.040-.710.080-.700.080-.700 1.150.080 1.760 1.180 1.760 1.180 1.020 1.750 2.680 1.240 3.340.950.100-.740.400-1.240.720-1.530-2.550-.290-5.240-1.280-5.240-5.690 0-1.260.450-2.290 1.180-3.100-.120-.290-.510-1.460.110-3.050 0 0 .960-.310 3.160 1.180a10.970 10.970 0 0 1 5.760 0c2.200-1.490 3.160-1.180 3.160-1.180.620 1.590.230 2.760.110 3.050.740.810 1.180 1.840 1.180 3.100 0 4.420-2.700 5.390-5.270 5.680.410.360.780 1.060.780 2.130 0 1.540-.010 2.780-.010 3.160 0 .310.210.670.800.560C20.210 21.390 23.500 17.080 23.500 12 23.500 5.650 18.350.500 12 .500z"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      class="ios-dockapp ios-dockapp--x"
+                      href="https://x.com/AgoodAmir"
+                      target="_blank"
+                      rel="noopener"
+                      aria-label="X (Twitter)"
+                    >
+                      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                          d="M18.244 2H21l-6.520 7.450L22.500 22h-6.780l-4.940-6.460L4.960 22H2.200l6.990-7.990L1.500 2h6.920l4.460 5.910L18.244 2zm-1.190 18h1.650L7.060 4h-1.700l11.694 16z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Lock Screen (shown briefly on load) -->
+                <button
+                  type="button"
+                  class="ios-lock"
+                  data-lock
+                  aria-label="Unlock phone"
+                >
+                  <span class="ios-lock__date" data-date>Sunday, 15 November</span>
+                  <span class="ios-lock__time" data-clock>9:41</span>
+                  <span class="ios-lock__hint">Unlocking…</span>
+                </button>
+
+                <!-- App page (filled from data when an icon is tapped) -->
+                <div
+                  class="ios-sheet"
+                  data-sheet
+                  role="dialog"
+                  aria-modal="false"
+                  aria-labelledby="sheet-name"
+                  hidden
+                >
+                  <button type="button" class="ios-sheet__close" data-sheet-close aria-label="Close app">
+                    <svg viewBox="0 0 12 12" aria-hidden="true">
+                      <path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" />
+                    </svg>
+                  </button>
+                  <div class="ios-sheet__scroll">
+                    <div class="ios-sheet__head">
+                      <img data-sheet-icon src="" alt="" />
+                      <div>
+                        <h2 id="sheet-name" data-sheet-name></h2>
+                        <p data-sheet-sub></p>
+                        <a class="ios-get" data-sheet-get target="_blank" rel="noopener">View</a>
+                      </div>
+                    </div>
+                    <dl class="ios-sheet__meta">
+                      <div><dt>Status</dt><dd data-sheet-status></dd></div>
+                      <div><dt>Platforms</dt><dd data-sheet-plat></dd></div>
+                      <div><dt>Studio</dt><dd>As Apps</dd></div>
+                    </dl>
+                    <p class="ios-sheet__desc" data-sheet-desc></p>
+                    <div class="ios-sheet__shot" data-sheet-shot></div>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  class="ios-homebar"
+                  data-homebar
+                  aria-label="Back to Home Screen"
+                  tabindex="-1"
+                ></button>
+                <span class="phone__glare" aria-hidden="true"></span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="hero-progress" aria-hidden="true"></div>
+
+        <a class="hero__scroll" href="#studio"
+          ><span aria-hidden="true">↓</span> Scroll</a
+        >
       </section>
-      <!-- ─── ASAPPS STUDIO ────────────────────────────────────────── -->
-      <section class="section section--studio" id="studio">
-        <div class="container">
-          <div class="studio__head">
-            <header class="section__header">
-              <span class="eyebrow">01 / Studio</span>
-              <div class="studio__title-row">
-                <img
-                  src="img/asapps/asapps-logo.png"
-                  alt=""
-                  class="studio-logo"
-                />
-                <h2 class="section__title">
-                  Small studio.<br /><em>A different orbit.</em>
-                </h2>
-              </div>
-              <p class="section__lead">
-                As Apps is my independent product studio. Thoughtful,
-                privacy-first apps for everyday life. Imagined, designed, and
-                built from the ground up.
-              </p>
-            </header>
-            <a
-              href="https://asapps.studio"
-              target="_blank"
-              rel="noopener"
-              class="studio__cta-link"
-              data-magnet
-            >
-              Visit asapps.studio
-              <svg
-                viewBox="0 0 20 20"
-                width="14"
-                height="14"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path d="M7 13l6-6M9 7h4v4" />
-              </svg>
-            </a>
-          </div>
 
-          <div class="studio-features">
-            <a
-              class="product-scene product-scene--rock"
-              href="https://apps.apple.com/us/app/as-rock-id-stone-scanner/id6760897608"
-              target="_blank"
-              rel="noopener"
-            >
-              <div class="scene-topline">
-                <span>01 / AS ROCK ID</span><span>DISCOVERY, REIMAGINED</span>
-              </div>
-              <span class="scene-word" aria-hidden="true">UNEARTH</span>
-              <div class="scene-orb" aria-hidden="true"></div>
-              <div class="scene-copy">
-                <img
-                  class="scene-icon"
-                  src="img/asapps/asrockid.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <h3>A whole world.<br /><em>In your hand.</em></h3>
-                <p>
-                  Point. Discover. Understand.<br />AI-powered rock and mineral
-                  identification.
-                </p>
-                <span class="scene-cta"
-                  >Explore AS Rock ID <span aria-hidden="true">↗</span></span
-                >
-                <p class="scene-role">
-                  Independent product · Design &amp; iOS engineering
-                </p>
-              </div>
-              <img
-                class="scene-product scene-product--rock"
-                src="img/asapps/screens/asrockid-banner.png"
-                alt="AS Rock ID identification, mineral composition and collection screens"
-                loading="lazy"
-              />
-              <div class="scene-specs">
-                <span><small>THE IDEA</small>Identify</span
-                ><span><small>THE ENGINEERING</small>AI-powered discovery</span
-                ><span><small>THE PLATFORM</small>iPhone + iPad</span
-                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
-              </div>
-            </a>
-            <a
-              class="product-scene product-scene--family"
-              href="https://asapps.studio/FamilyBrief/"
-              target="_blank"
-              rel="noopener"
-              ><div class="scene-topline">
-                <span>02 / FAMILYBRIEF</span
-                ><span>MORE LIFE. LESS LOGISTICS.</span>
-              </div>
-              <span class="scene-word" aria-hidden="true">TOGETHER</span>
-              <div class="scene-copy">
-                <img
-                  class="scene-icon"
-                  src="img/asapps/familybrief.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <h3>Life is messy.<br /><em>Tomorrow isn’t.</em></h3>
-                <p>
-                  Messages, screenshots, and voice notes.<br />One calm plan for
-                  the whole family.
-                </p>
-                <span class="scene-cta"
-                  >Meet FamilyBrief <span aria-hidden="true">↗</span></span
-                >
-                <p class="scene-role">
-                  Independent product · On-device family planning
-                </p>
-              </div>
-              <img
-                class="scene-product scene-product--family"
-                src="img/cinematic/familybrief-scene.png"
-                alt="FamilyBrief illustrated family organizer"
-                loading="lazy"
-              />
-              <div class="scene-specs">
-                <span><small>THE IDEA</small>Organize</span
-                ><span
-                  ><small>THE ENGINEERING</small>On-device intelligence</span
-                ><span><small>THE PLATFORM</small>iPhone</span
-                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
-              </div></a
-            >
-            <a
-              class="product-scene product-scene--pos"
-              href="https://asapps.studio/PocketPOS/"
-              target="_blank"
-              rel="noopener"
-              ><div class="scene-topline">
-                <span>03 / POCKETPOS</span
-                ><span>SMALL BUSINESS. BIG POSSIBILITIES.</span>
-              </div>
-              <span class="scene-word" aria-hidden="true">OPEN</span>
-              <div class="pos-rings" aria-hidden="true"></div>
-              <div class="scene-copy">
-                <img
-                  class="scene-icon"
-                  src="img/asapps/pocketpos.png"
-                  alt=""
-                  loading="lazy"
-                />
-                <h3>Your shop.<br /><em>Unplugged.</em></h3>
-                <p>
-                  Scan a barcode. Make a sale.<br />Your entire register, even
-                  without a signal.
-                </p>
-                <span class="scene-cta"
-                  >Discover PocketPOS <span aria-hidden="true">↗</span></span
-                >
-                <p class="scene-role">
-                  Independent product · Offline iPhone &amp; iPad register
-                </p>
-              </div>
-              <div class="pos-device">
-                <img
-                  src="img/cinematic/pocketpos-screen.png"
-                  alt="PocketPOS iPhone dashboard with revenue, sales, and quick actions"
-                  loading="lazy"
-                />
-              </div>
-              <div class="scene-specs">
-                <span><small>THE IDEA</small>Sell</span
-                ><span><small>THE ENGINEERING</small>Works fully offline</span
-                ><span><small>THE PLATFORM</small>iPhone + iPad</span
-                ><span class="scene-specs__arrow" aria-hidden="true">↗</span>
-              </div></a
-            >
-          </div>
-          <div class="catalog-label">
-            <span>THE COMPLETE UNIVERSE / 10 PRODUCTS</span
-            ><span>09 LIVE / 01 IN THE MAKING</span>
-          </div>
-          <ul class="studio-grid">
-            <li class="studio-card" data-app="authkit">
-              <a
-                href="https://apps.apple.com/tr/app/auth-kit/id6757927352"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/authkit.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>Auth Kit</h3>
-                  <p>2FA codes &amp; password manager.</p>
-                  <span class="studio-card__platforms"
-                    >iOS · iPadOS · macOS</span
-                  >
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="asrockid">
-              <a
-                href="https://apps.apple.com/us/app/as-rock-id-stone-scanner/id6760897608"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/asrockid.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>AS Rock ID</h3>
-                  <p>AI rock &amp; mineral identification.</p>
-                  <span class="studio-card__platforms">iOS · iPadOS</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="asremote">
-              <a
-                href="https://apps.apple.com/us/app/as-remote-universal-tv-remote/id6758200639"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/asremote.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>AS Remote</h3>
-                  <p>Universal TV remote for Tizen &amp; WebOS.</p>
-                  <span class="studio-card__platforms">iOS</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="cleaner">
-              <a
-                href="https://apps.apple.com/us/app/as-cleaner/id6757202297"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/ascleaner.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>AS Cleaner</h3>
-                  <p>Storage optimizer &amp; photo cleaner.</p>
-                  <span class="studio-card__platforms">iOS · iPadOS</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="croncraft">
-              <a
-                href="https://apps.apple.com/us/app/croncraft-cron-builder/id6760654834"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/croncraft.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>CronCraft</h3>
-                  <p>Build &amp; decode cron expressions visually.</p>
-                  <span class="studio-card__platforms">iOS</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="asvpn">
-              <a
-                href="https://asvpn.app"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/asvpn.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>ASvpn</h3>
-                  <p>Fast, secure VPN for complete privacy.</p>
-                  <span class="studio-card__platforms">iOS · web</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="receipt">
-              <a
-                href="https://asapps.studio/ReceiptRescue/"
-                target="_blank"
-                rel="noopener"
-              >
-                <div class="iphone-mini">
-                  <span class="iphone-mini__notch" aria-hidden="true"></span>
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/receiptrescue.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>Receipt Rescue</h3>
-                  <p>AI receipt tracker for taxes &amp; bookkeepers.</p>
-                  <span class="studio-card__platforms">iOS · iPadOS</span>
-                </div>
-              </a>
-            </li>
-
-            <li class="studio-card" data-app="familybrief">
-              <a
-                href="https://asapps.studio/FamilyBrief/"
-                target="_blank"
-                rel="noopener"
-                ><div class="iphone-mini">
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/familybrief.png"
-                      alt=""
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>FamilyBrief</h3>
-                  <p>
-                    Turn messages, screenshots &amp; voice notes into family
-                    plans.
-                  </p>
-                  <span class="studio-card__platforms">iOS</span>
-                </div></a
-              >
-            </li>
-            <li class="studio-card" data-app="pocketpos">
-              <a
-                href="https://asapps.studio/PocketPOS/"
-                target="_blank"
-                rel="noopener"
-                ><div class="iphone-mini">
-                  <div class="iphone-mini__screen">
-                    <img
-                      class="iphone-mini__icon"
-                      src="img/asapps/pocketpos.png"
-                      alt=""
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-                <div class="studio-card__body">
-                  <span class="studio-card__pill studio-card__pill--live"
-                    >Live</span
-                  >
-                  <h3>PocketPOS</h3>
-                  <p>
-                    Offline point of sale with barcode scanning &amp; receipts.
-                  </p>
-                  <span class="studio-card__platforms">iOS · iPadOS</span>
-                </div></a
-              >
-            </li>
-            <li class="studio-card" data-app="sleep">
-              <div class="iphone-mini">
-                <span class="iphone-mini__notch" aria-hidden="true"></span>
-                <div class="iphone-mini__screen">
-                  <img
-                    class="iphone-mini__icon"
-                    src="img/asapps/sleephealth.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-              <div class="studio-card__body">
-                <span class="studio-card__pill studio-card__pill--soon"
-                  >Coming soon</span
-                >
-                <h3>Sleep &amp; Health</h3>
-                <p>Wellness tracking with privacy-first sync.</p>
-                <span class="studio-card__platforms">iOS · watchOS</span>
-              </div>
-            </li>
+      <!-- ─── CLIENT MARQUEE ───────────────────────────────────────── -->
+      <section class="marquee" aria-label="Brands Amir has shipped for">
+        <p class="marquee__label">Shipped for</p>
+        <div class="marquee__track">
+          <ul>
+            <li>Turkcell</li>
+            <li>Skullcandy</li>
+            <li>NEC</li>
+            <li>N Kolay</li>
+            <li>Bragi</li>
+            <li>Coca-Cola İçecek</li>
+            <li>Skechers</li>
+            <li>TCMB</li>
+            <li>Tuborg</li>
+            <li>TotalEnergies</li>
+          </ul>
+          <ul aria-hidden="true">
+            <li>Turkcell</li>
+            <li>Skullcandy</li>
+            <li>NEC</li>
+            <li>N Kolay</li>
+            <li>Bragi</li>
+            <li>Coca-Cola İçecek</li>
+            <li>Skechers</li>
+            <li>TCMB</li>
+            <li>Tuborg</li>
+            <li>TotalEnergies</li>
           </ul>
         </div>
       </section>
 
-      <div class="credits-strip">
-        <div class="container">
-          <span class="credits-label">A FEW PLACES<br />I’VE LEFT MY MARK</span
-          ><span>Turkcell</span><span>Skullcandy</span><span>NEC</span
-          ><span>N Kolay</span><span>Bragi</span><span>Coca-Cola İçecek</span>
-        </div>
-      </div>
-      <section class="manifesto-scene">
-        <div class="manifesto container">
-          <span class="eyebrow">A LITTLE ABOUT MY GRAVITY</span>
-          <p>
-            Good engineering<br />is invisible.<br /><em
-              >Great experiences<br />aren’t.</em
-            >
-          </p>
-          <div class="manifesto__aside">
-            <span class="manifesto__asterisk" aria-hidden="true">✳</span>
-            <p>
-              I live where engineering meets intuition. Nine years building for
-              banks, audio brands, and millions of everyday moments. Now,
-              bringing that same obsession to my own independent studio.
-            </p>
-            <div class="manifesto__stats">
-              <span><b>9+</b>Years of craft</span
-              ><span><b>20+</b>Apps shipped</span
-              ><span><b>09</b>Studio releases</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- ─── CLIENT WORK ──────────────────────────────────────────── -->
-      <section class="section section--work" id="work">
-        <div class="container">
-          <header class="section__header">
-            <span class="eyebrow">02 / Selected client work</span>
-            <h2 class="section__title">
-              Built for the world.<br /><em>Used in real life.</em>
+      <!-- ─── STUDIO ───────────────────────────────────────────────── -->
+      <section class="section studio" id="studio" data-chapter="Studio">
+        <div class="wrap">
+          <header class="head" data-reveal>
+            <p class="eyebrow">01 — As Apps</p>
+            <h2 class="head__title">
+              An independent studio, built one app at a time.
             </h2>
-            <p class="section__lead">
-              A snapshot of products I've led or contributed to as a mobile
-              engineer over the past nine years.
-            </p>
+            <div class="head__side">
+              <p>
+                As Apps is my own product studio. Thoughtful, privacy-first apps
+                for everyday life, imagined, designed and engineered from the
+                ground up.
+              </p>
+              <a
+                class="link"
+                href="https://asapps.studio"
+                target="_blank"
+                rel="noopener"
+                >Visit asapps.studio <span aria-hidden="true">↗</span></a
+              >
+            </div>
           </header>
 
-          <div class="filter-bar" role="group" aria-label="Filter portfolio">
-            <button
-              class="chip is-active"
-              data-filter="all"
-              aria-pressed="true"
-            >
-              All
-            </button>
-            <button class="chip" data-filter="commerce" aria-pressed="false">
-              E-commerce
-            </button>
-            <button class="chip" data-filter="banking" aria-pressed="false">
-              Banking
-            </button>
-            <button
-              class="chip"
-              data-filter="entertainment"
-              aria-pressed="false"
-            >
-              Entertainment
-            </button>
-            <button class="chip" data-filter="utility" aria-pressed="false">
-              Utility
-            </button>
+          <div class="features">
+            <article class="feature feature--rock" style="--i: 0">
+              <div class="feature__copy">
+                <p class="feature__no">01 / 03 · Discovery</p>
+                <img class="feature__icon" src="img/asapps/asrockid.png" alt="" width="320" height="320" loading="lazy" />
+                <h3>AS Rock ID</h3>
+                <p class="feature__line">A whole world, in your hand.</p>
+                <p>
+                  Point the camera at a stone. Get its identity, its mineral
+                  composition and a place in your collection.
+                </p>
+                <dl class="feature__specs">
+                  <div><dt>Engineering</dt><dd>AI-powered identification</dd></div>
+                  <div><dt>Platform</dt><dd>iPhone + iPad</dd></div>
+                  <div><dt>Role</dt><dd>Design + iOS</dd></div>
+                </dl>
+                <a
+                  class="btn btn--feature"
+                  href="https://apps.apple.com/us/app/as-rock-id-stone-scanner/id6760897608"
+                  target="_blank"
+                  rel="noopener"
+                  >View on the App Store <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="feature__art">
+                <img
+                  src="img/asapps/screens/asrockid-banner.png"
+                  alt="AS Rock ID identification, mineral composition and collection screens"
+                  width="960"
+                  height="960"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+
+            <article class="feature feature--family" style="--i: 1">
+              <div class="feature__copy">
+                <p class="feature__no">02 / 03 · Family</p>
+                <img class="feature__icon" src="img/asapps/familybrief.png" alt="" width="160" height="160" loading="lazy" />
+                <h3>FamilyBrief</h3>
+                <p class="feature__line">Life is messy. Tomorrow isn’t.</p>
+                <p>
+                  Messages, screenshots and voice notes go in. One calm plan for
+                  the whole family comes out.
+                </p>
+                <dl class="feature__specs">
+                  <div><dt>Engineering</dt><dd>On-device intelligence</dd></div>
+                  <div><dt>Platform</dt><dd>iPhone</dd></div>
+                  <div><dt>Role</dt><dd>Design + iOS</dd></div>
+                </dl>
+                <a
+                  class="btn btn--feature"
+                  href="https://asapps.studio/FamilyBrief/"
+                  target="_blank"
+                  rel="noopener"
+                  >Meet FamilyBrief <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="feature__art">
+                <img
+                  src="img/cinematic/familybrief-scene.png"
+                  alt="FamilyBrief turning voice notes, messages and lists into one plan"
+                  width="1100"
+                  height="624"
+                  loading="lazy"
+                />
+              </div>
+            </article>
+
+            <article class="feature feature--pos" style="--i: 2">
+              <div class="feature__copy">
+                <p class="feature__no">03 / 03 · Commerce</p>
+                <img class="feature__icon" src="img/asapps/pocketpos.png" alt="" width="1024" height="1024" loading="lazy" />
+                <h3>PocketPOS</h3>
+                <p class="feature__line">Your shop, unplugged.</p>
+                <p>
+                  Scan a barcode. Make a sale. Your entire register in your
+                  pocket, even without a signal.
+                </p>
+                <dl class="feature__specs">
+                  <div><dt>Engineering</dt><dd>Works fully offline</dd></div>
+                  <div><dt>Platform</dt><dd>iPhone + iPad</dd></div>
+                  <div><dt>Role</dt><dd>Design + iOS</dd></div>
+                </dl>
+                <a
+                  class="btn btn--feature"
+                  href="https://asapps.studio/PocketPOS/"
+                  target="_blank"
+                  rel="noopener"
+                  >Discover PocketPOS <span aria-hidden="true">↗</span></a
+                >
+              </div>
+              <div class="feature__art">
+                <div class="minidevice">
+                  <img
+                    src="img/cinematic/pocketpos-screen.png"
+                    alt="PocketPOS dashboard with revenue, orders and recent sales"
+                    width="368"
+                    height="800"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </article>
           </div>
 
-          <ul class="work-grid" data-grid>
-            <li class="work-card work-card--retail" data-cat="commerce">
-              <a
-                class="retail-art retail-art--skechers"
-                href="https://apps.apple.com/tr/app/skechers-t%C3%BCrkiye/id1575333906"
-                target="_blank"
-                rel="noopener"
-                aria-label="View Skechers Türkiye on the App Store"
-                ><div class="retail-art__brand">
-                  <img
-                    src="img/portfolio/skechers-icon.jpg"
-                    alt=""
-                    loading="lazy"
-                  /><span>Skechers Türkiye</span><small>iOS + ANDROID</small>
+          <div class="catalog" data-reveal>
+            <div class="catalog__head">
+              <h3>The full catalog</h3>
+              <p>10 products · 09 live · 01 in the making</p>
+            </div>
+            <ul class="catalog__grid">
+              <li>
+                <a href="https://apps.apple.com/tr/app/auth-kit/id6757927352" target="_blank" rel="noopener">
+                  <img src="img/asapps/authkit.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">Auth Kit</span>
+                  <span class="catalog__desc">2FA codes &amp; password manager.</span>
+                  <span class="catalog__meta">iOS · iPadOS · macOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apps.apple.com/us/app/as-rock-id-stone-scanner/id6760897608" target="_blank" rel="noopener">
+                  <img src="img/asapps/asrockid.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">AS Rock ID</span>
+                  <span class="catalog__desc">AI rock &amp; mineral identification.</span>
+                  <span class="catalog__meta">iOS · iPadOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apps.apple.com/us/app/as-remote-universal-tv-remote/id6758200639" target="_blank" rel="noopener">
+                  <img src="img/asapps/asremote.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">AS Remote</span>
+                  <span class="catalog__desc">Universal TV remote for Tizen &amp; WebOS.</span>
+                  <span class="catalog__meta">iOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apps.apple.com/us/app/as-cleaner/id6757202297" target="_blank" rel="noopener">
+                  <img src="img/asapps/ascleaner.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">AS Cleaner</span>
+                  <span class="catalog__desc">Storage optimizer &amp; photo cleaner.</span>
+                  <span class="catalog__meta">iOS · iPadOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://apps.apple.com/us/app/croncraft-cron-builder/id6760654834" target="_blank" rel="noopener">
+                  <img src="img/asapps/croncraft.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">CronCraft</span>
+                  <span class="catalog__desc">Build &amp; decode cron expressions visually.</span>
+                  <span class="catalog__meta">iOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://asvpn.app" target="_blank" rel="noopener">
+                  <img src="img/asapps/asvpn.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">ASvpn</span>
+                  <span class="catalog__desc">Fast, secure VPN for complete privacy.</span>
+                  <span class="catalog__meta">iOS · web</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://asapps.studio/ReceiptRescue/" target="_blank" rel="noopener">
+                  <img src="img/asapps/receiptrescue.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">Receipt Rescue</span>
+                  <span class="catalog__desc">AI receipt tracker for taxes &amp; bookkeepers.</span>
+                  <span class="catalog__meta">iOS · iPadOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://asapps.studio/FamilyBrief/" target="_blank" rel="noopener">
+                  <img src="img/asapps/familybrief.png" alt="" width="160" height="160" loading="lazy" />
+                  <span class="catalog__name">FamilyBrief</span>
+                  <span class="catalog__desc">Messages, screenshots &amp; voice notes into family plans.</span>
+                  <span class="catalog__meta">iOS</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://asapps.studio/PocketPOS/" target="_blank" rel="noopener">
+                  <img src="img/asapps/pocketpos.png" alt="" width="1024" height="1024" loading="lazy" />
+                  <span class="catalog__name">PocketPOS</span>
+                  <span class="catalog__desc">Offline point of sale with barcode scanning &amp; receipts.</span>
+                  <span class="catalog__meta">iOS · iPadOS</span>
+                </a>
+              </li>
+              <li class="is-soon">
+                <div>
+                  <img src="img/asapps/sleephealth.png" alt="" width="320" height="320" loading="lazy" />
+                  <span class="catalog__name">Sleep &amp; Health</span>
+                  <span class="catalog__desc">Wellness tracking with privacy-first sync.</span>
+                  <span class="catalog__meta">iOS · watchOS · Coming soon</span>
                 </div>
-                <div class="retail-art__screens">
-                  <img
-                    src="img/portfolio/skechers-screen-1.png"
-                    alt="Skechers Türkiye official App Store preview"
-                    loading="lazy"
-                  /><img
-                    src="img/portfolio/skechers-screen-2.png"
-                    alt="Skechers Türkiye shopping features"
-                    loading="lazy"
-                  /></div
-              ></a>
-              <div class="work-card__body">
-                <span class="work-card__cat">E-commerce · Set Yazılım</span>
-                <h3>Skechers Türkiye</h3>
-                <p>
-                  Footwear and sportswear shopping, from product discovery to
-                  ordering.
-                </p>
-                <div class="work-store-links">
-                  <a
-                    href="https://apps.apple.com/tr/app/skechers-t%C3%BCrkiye/id1575333906"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Skechers Türkiye — App Store"
-                    >App Store <span aria-hidden="true">↗</span></a
-                  ><a
-                    href="https://play.google.com/store/apps/details?id=tr.com.skechers.android&amp;hl=en&amp;pli=1"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="Skechers Türkiye — Google Play"
-                    >Google Play <span aria-hidden="true">↗</span></a
-                  >
-                </div>
-              </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── ABOUT / STATEMENT ────────────────────────────────────── -->
+      <section class="section about" id="about" data-chapter="About">
+        <div class="wrap">
+          <p class="eyebrow" data-reveal>02 — How I work</p>
+          <p class="statement" data-statement>
+            I live where engineering meets intuition. Ten years building for
+            banks, audio brands and millions of everyday moments. Now I bring
+            the same obsession to my own independent studio.
+          </p>
+
+          <dl class="stats" data-reveal>
+            <div>
+              <dd><span data-count="10">10</span></dd>
+              <dt>Years of native iOS</dt>
+            </div>
+            <div>
+              <dd><span data-count="20">20</span>+</dd>
+              <dt>Apps shipped to the App Store</dt>
+            </div>
+            <div>
+              <dd><span data-count="9" data-pad="2">09</span></dd>
+              <dt>Studio releases, live today</dt>
+            </div>
+            <div>
+              <dd><span data-count="3">3</span></dd>
+              <dt>Languages I deliver in</dt>
+            </div>
+          </dl>
+
+          <ul class="principles" data-reveal>
+            <li>
+              <h3>Native by design</h3>
+              <p>
+                Swift and SwiftUI first. The platform’s own tools, used the way
+                they were meant to be used.
+              </p>
             </li>
-            <li class="work-card work-card--retail" data-cat="commerce">
-              <a
-                class="retail-art retail-art--sochic"
-                href="https://apps.apple.com/tr/app/so-chic-tak%C4%B1-m%C3%BCcevher/id6748760386"
-                target="_blank"
-                rel="noopener"
-                aria-label="View So CHIC Takı &amp; Mücevher on the App Store"
-                ><div class="retail-art__brand">
-                  <img
-                    src="img/portfolio/sochic-icon.jpg"
-                    alt=""
-                    loading="lazy"
-                  /><span>So CHIC Takı &amp; Mücevher</span
-                  ><small>iOS + ANDROID</small>
-                </div>
-                <div class="retail-art__screens">
-                  <img
-                    src="img/portfolio/sochic-screen-1.jpg"
-                    alt="So CHIC Takı &amp; Mücevher official App Store preview"
-                    loading="lazy"
-                  /><img
-                    src="img/portfolio/sochic-screen-2.jpg"
-                    alt="So CHIC Takı &amp; Mücevher shopping features"
-                    loading="lazy"
-                  /></div
-              ></a>
-              <div class="work-card__body">
-                <span class="work-card__cat">E-commerce · Set Yazılım</span>
-                <h3>So CHIC Takı &amp; Mücevher</h3>
-                <p>
-                  Jewelry shopping with collections, favorites, and order
-                  tracking.
-                </p>
-                <div class="work-store-links">
-                  <a
-                    href="https://apps.apple.com/tr/app/so-chic-tak%C4%B1-m%C3%BCcevher/id6748760386"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="So CHIC Takı &amp; Mücevher — App Store"
-                    >App Store <span aria-hidden="true">↗</span></a
-                  ><a
-                    href="https://play.google.com/store/apps/details?id=com.commercelab.sochic&amp;hl=en"
-                    target="_blank"
-                    rel="noopener"
-                    aria-label="So CHIC Takı &amp; Mücevher — Google Play"
-                    >Google Play <span aria-hidden="true">↗</span></a
-                  >
-                </div>
-              </div>
+            <li>
+              <h3>Privacy first</h3>
+              <p>
+                On-device intelligence wherever it fits, so the data people
+                trust an app with stays theirs.
+              </p>
             </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/universal-remote-control-4-tv/id6504182653"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/remote.jpg"
-                    alt="Universal Remote Control"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Universal Remote Control</h3>
-                  <p>WebSocket TV remote SDK for Tizen &amp; WebOS.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="banking">
-              <a
-                href="https://apps.apple.com/tr/app/n-kolay-digital-banking/id1449491530"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/nkolay.jpg"
-                    alt="N Kolay Banking"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Banking</span>
-                  <h3>N Kolay</h3>
-                  <p>Digital banking application for the Turkish market.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="entertainment">
-              <a
-                href="https://apps.apple.com/tr/app/t10-bespoke/id1619836451"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/t10.jpg"
-                    alt="T10 Bespoke"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Entertainment</span>
-                  <h3>T10 Bespoke</h3>
-                  <p>Companion app for EAR Micro high-end audio.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="entertainment">
-              <a
-                href="https://apps.apple.com/tr/app/skull-iq/id1635588098"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/skull.jpg"
-                    alt="Skull-iQ"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Entertainment</span>
-                  <h3>Skull-iQ</h3>
-                  <p>Skullcandy companion: voice control, EQ, OTA.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/vigie-3/id1617787850"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/vigie.jpg"
-                    alt="Vigie 3"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Vigie 3</h3>
-                  <p>Field utility app shipped to enterprise customers.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="banking">
-              <a
-                href="https://apps.apple.com/tr/app/jaaims/id1502620058"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/jaaims.jpg"
-                    alt="Jaaims"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Banking</span>
-                  <h3>Jaaims</h3>
-                  <p>Algorithmic trading client &mdash; led from scratch.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/dijital-operatör/id335162906"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/turkcell.jpg"
-                    alt="Turkcell"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Turkcell Dijital Operatör</h3>
-                  <p>Official iOS app for Turkey's largest mobile operator.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/tuborg-burada/id1550782020"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/tuborg.jpg"
-                    alt="Tuborg"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Tuborg Burada</h3>
-                  <p>Brand activation with location experiences.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/goki/id1486837843"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img src="img/portfolio/goki.jpg" alt="Goki" loading="lazy" />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Goki</h3>
-                  <p>Hotel management system &mdash; MVVM + RxSwift.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/haberler-com/id339144085"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/haberler.jpg"
-                    alt="Haberler"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Haberler.com</h3>
-                  <p>National news app reaching millions of readers.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/son-dakika/id716069012"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/sondakika.jpg"
-                    alt="Son Dakika"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Son Dakika</h3>
-                  <p>Breaking news, optimized for fast push-to-read.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="banking">
-              <a
-                href="https://apps.apple.com/tr/app/tcmb/id1100113743"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img src="img/portfolio/tcmb.jpg" alt="TCMB" loading="lazy" />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Banking</span>
-                  <h3>TCMB</h3>
-                  <p>Official Central Bank of the Republic of Turkey app.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/ccinext/id1229088452"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/ccinext.jpg"
-                    alt="CCINEXT"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>CCINEXT</h3>
-                  <p>Internal tooling for Coca-Cola İçecek field ops.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/cci-trivia/id1447840898"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/ccitrivia.jpg"
-                    alt="CCI Trivia"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>CCI Trivia</h3>
-                  <p>Trivia engagement app for Coca-Cola İçecek.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/total-i-stasyonları/id1475221458"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img
-                    src="img/portfolio/total.jpg"
-                    alt="Total"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>Total İstasyonları</h3>
-                  <p>Loyalty &amp; locator app for Total fuel stations.</p>
-                </div></a
-              >
-            </li>
-            <li class="work-card" data-cat="utility">
-              <a
-                href="https://apps.apple.com/tr/app/kgm-türkiye-trafik/id1503650401"
-                target="_blank"
-                rel="noopener"
-                data-magnet
-                ><div class="work-card__media">
-                  <img src="img/portfolio/kgm.jpg" alt="KGM" loading="lazy" />
-                </div>
-                <div class="work-card__body">
-                  <span class="work-card__cat">Utility</span>
-                  <h3>KGM Türkiye Trafik</h3>
-                  <p>Real-time traffic from the Turkish road authority.</p>
-                </div></a
-              >
+            <li>
+              <h3>Shipped, not demoed</h3>
+              <p>
+                Modular architecture, tests and CI/CD on every product, from the
+                first commit to App Store review.
+              </p>
             </li>
           </ul>
         </div>
+      </section>
+
+      <!-- ─── CLIENT WORK ──────────────────────────────────────────── -->
+      <section class="section work" id="work" data-chapter="Work">
+        <div class="wrap">
+          <header class="head" data-reveal>
+            <p class="eyebrow">03 — Selected client work</p>
+            <h2 class="head__title">Built for brands. Used in real life.</h2>
+            <div class="head__side">
+              <p>
+                Products I’ve led or contributed to as a mobile engineer over
+                the past ten years.
+              </p>
+            </div>
+          </header>
+
+          <div class="filters" role="group" aria-label="Filter client work" data-reveal>
+            <button class="chip is-active" data-filter="all" aria-pressed="true">All <sup>18</sup></button>
+            <button class="chip" data-filter="commerce" aria-pressed="false">E-commerce <sup>2</sup></button>
+            <button class="chip" data-filter="banking" aria-pressed="false">Banking <sup>3</sup></button>
+            <button class="chip" data-filter="entertainment" aria-pressed="false">Entertainment <sup>2</sup></button>
+            <button class="chip" data-filter="utility" aria-pressed="false">Utility <sup>11</sup></button>
+          </div>
+
+          <ol class="jobs" data-jobs>
+            <li class="job" data-cat="commerce" data-preview="img/portfolio/skechers-screen-1.png" data-tall>
+              <a class="job__link" href="https://apps.apple.com/tr/app/skechers-t%C3%BCrkiye/id1575333906" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/skechers-icon.jpg" alt="" width="512" height="512" loading="lazy" />
+                <span class="job__name">Skechers Türkiye</span>
+                <span class="job__desc">Footwear and sportswear shopping, from product discovery to ordering.</span>
+                <span class="job__cat">E-commerce · Set Yazılım</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="job__alt" href="https://play.google.com/store/apps/details?id=tr.com.skechers.android&amp;hl=en&amp;pli=1" target="_blank" rel="noopener" aria-label="Skechers Türkiye on Google Play">Also on Google Play ↗</a>
+            </li>
+            <li class="job" data-cat="commerce" data-preview="img/portfolio/sochic-screen-1.jpg" data-tall>
+              <a class="job__link" href="https://apps.apple.com/tr/app/so-chic-tak%C4%B1-m%C3%BCcevher/id6748760386" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/sochic-icon.jpg" alt="" width="512" height="512" loading="lazy" />
+                <span class="job__name">So CHIC Takı &amp; Mücevher</span>
+                <span class="job__desc">Jewelry shopping with collections, favorites and order tracking.</span>
+                <span class="job__cat">E-commerce · Set Yazılım</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+              <a class="job__alt" href="https://play.google.com/store/apps/details?id=com.commercelab.sochic&amp;hl=en" target="_blank" rel="noopener" aria-label="So CHIC on Google Play">Also on Google Play ↗</a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/remote.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/universal-remote-control-4-tv/id6504182653" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/remote.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Universal Remote Control</span>
+                <span class="job__desc">WebSocket TV remote SDK for Tizen &amp; WebOS.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="banking" data-preview="img/portfolio/nkolay.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/n-kolay-digital-banking/id1449491530" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/nkolay.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">N Kolay</span>
+                <span class="job__desc">Digital banking application for the Turkish market.</span>
+                <span class="job__cat">Banking</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="entertainment" data-preview="img/portfolio/t10.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/t10-bespoke/id1619836451" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/t10.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">T10 Bespoke</span>
+                <span class="job__desc">Companion app for EAR Micro high-end audio.</span>
+                <span class="job__cat">Entertainment</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="entertainment" data-preview="img/portfolio/skull.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/skull-iq/id1635588098" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/skull.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Skull-iQ</span>
+                <span class="job__desc">Skullcandy companion: voice control, EQ, OTA.</span>
+                <span class="job__cat">Entertainment</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/vigie.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/vigie-3/id1617787850" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/vigie.jpg" alt="" width="826" height="551" loading="lazy" />
+                <span class="job__name">Vigie 3</span>
+                <span class="job__desc">Field utility app shipped to enterprise customers.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="banking" data-preview="img/portfolio/jaaims.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/jaaims/id1502620058" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/jaaims.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Jaaims</span>
+                <span class="job__desc">Algorithmic trading client, led from scratch.</span>
+                <span class="job__cat">Banking</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/turkcell.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/dijital-operatör/id335162906" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/turkcell.jpg" alt="" width="826" height="550" loading="lazy" />
+                <span class="job__name">Turkcell Dijital Operatör</span>
+                <span class="job__desc">Official iOS app for Turkey’s largest mobile operator.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/tuborg.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/tuborg-burada/id1550782020" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/tuborg.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Tuborg Burada</span>
+                <span class="job__desc">Brand activation with location experiences.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/goki.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/goki/id1486837843" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/goki.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Goki</span>
+                <span class="job__desc">Hotel management system, MVVM + RxSwift.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/haberler.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/haberler-com/id339144085" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/haberler.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Haberler.com</span>
+                <span class="job__desc">National news app reaching millions of readers.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/sondakika.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/son-dakika/id716069012" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/sondakika.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Son Dakika</span>
+                <span class="job__desc">Breaking news, optimized for fast push-to-read.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="banking" data-preview="img/portfolio/tcmb.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/tcmb/id1100113743" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/tcmb.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">TCMB</span>
+                <span class="job__desc">Official Central Bank of the Republic of Turkey app.</span>
+                <span class="job__cat">Banking</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/ccinext.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/ccinext/id1229088452" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/ccinext.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">CCINEXT</span>
+                <span class="job__desc">Internal tooling for Coca-Cola İçecek field ops.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/ccitrivia.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/cci-trivia/id1447840898" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/ccitrivia.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">CCI Trivia</span>
+                <span class="job__desc">Trivia engagement app for Coca-Cola İçecek.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/total.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/total-i-stasyonları/id1475221458" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/total.jpg" alt="" width="825" height="550" loading="lazy" />
+                <span class="job__name">Total İstasyonları</span>
+                <span class="job__desc">Loyalty &amp; locator app for Total fuel stations.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+            <li class="job" data-cat="utility" data-preview="img/portfolio/kgm.jpg">
+              <a class="job__link" href="https://apps.apple.com/tr/app/kgm-türkiye-trafik/id1503650401" target="_blank" rel="noopener">
+                <img class="job__thumb" src="img/portfolio/kgm.jpg" alt="" width="825" height="551" loading="lazy" />
+                <span class="job__name">KGM Türkiye Trafik</span>
+                <span class="job__desc">Real-time traffic from the Turkish road authority.</span>
+                <span class="job__cat">Utility</span>
+                <span class="job__arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          </ol>
+        </div>
+        <div class="peek" data-peek aria-hidden="true"><img alt="" /></div>
       </section>
 
       <!-- ─── STACK ────────────────────────────────────────────────── -->
-      <section class="section section--stack" id="stack">
-        <div class="container">
-          <header class="section__header">
-            <span class="eyebrow">03 / Stack</span>
-            <h2 class="section__title">
-              Under the surface.<br /><em>Behind the experience.</em>
-            </h2>
-            <p class="section__lead">
-              No checkbox lists or vanity badges &mdash; this is what I actually
-              use to ship every week.
-            </p>
+      <section class="section stack" id="stack" data-chapter="Stack">
+        <div class="wrap">
+          <header class="head" data-reveal>
+            <p class="eyebrow">04 — Tech specs</p>
+            <h2 class="head__title">What’s under the surface.</h2>
+            <div class="head__side">
+              <p>
+                No checkbox lists or vanity badges. This is what I actually use
+                to ship every week.
+              </p>
+            </div>
           </header>
 
-          <div class="stack-grid">
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">01</span>
-                <h3>Languages &amp; UI</h3>
-              </header>
-              <ul class="tag-list">
-                <li>Swift</li>
-                <li>SwiftUI</li>
-                <li>UIKit</li>
-                <li>Combine</li>
-                <li>RxSwift</li>
-                <li>Objective-C</li>
-                <li>Swift Concurrency</li>
-              </ul>
-            </article>
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">02</span>
-                <h3>Architecture</h3>
-              </header>
-              <ul class="tag-list">
-                <li>MVVM</li>
-                <li>VIPER</li>
-                <li>Clean Swift</li>
-                <li>Coordinators</li>
-                <li>SOLID</li>
-                <li>Modular SPM</li>
-              </ul>
-            </article>
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">03</span>
-                <h3>Persistence &amp; Data</h3>
-              </header>
-              <ul class="tag-list">
-                <li>Core Data</li>
-                <li>Realm</li>
-                <li>SwiftData</li>
-                <li>Keychain</li>
-                <li>URLSession</li>
-                <li>WebSocket</li>
-              </ul>
-            </article>
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">04</span>
-                <h3>Quality &amp; CI/CD</h3>
-              </header>
-              <ul class="tag-list">
-                <li>XCTest</li>
-                <li>UI Testing</li>
-                <li>TDD</li>
-                <li>Bitrise</li>
-                <li>Azure DevOps</li>
-                <li>Fastlane</li>
-                <li>GitHub Actions</li>
-              </ul>
-            </article>
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">05</span>
-                <h3>Apple platform</h3>
-              </header>
-              <ul class="tag-list">
-                <li>In-App Purchases</li>
-                <li>Apple Wallet</li>
-                <li>Push (APNs)</li>
-                <li>Widgets</li>
-                <li>App Clips</li>
-                <li>StoreKit 2</li>
-              </ul>
-            </article>
-            <article class="stack-card">
-              <header class="stack-card__head">
-                <span class="stack-card__num">06</span>
-                <h3>Collaboration</h3>
-              </header>
-              <ul class="tag-list">
-                <li>Agile / Scrum</li>
-                <li>Code review</li>
-                <li>Mentoring</li>
-                <li>JIRA</li>
-                <li>Figma hand-off</li>
-                <li>Trilingual delivery</li>
-              </ul>
-            </article>
-          </div>
+          <dl class="specs">
+            <div class="specs__row" data-reveal>
+              <dt><span>01</span>Languages &amp; UI</dt>
+              <dd>
+                <ul>
+                  <li>Swift</li><li>SwiftUI</li><li>UIKit</li><li>Combine</li><li>RxSwift</li><li>Objective-C</li><li>Swift Concurrency</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="specs__row" data-reveal>
+              <dt><span>02</span>Architecture</dt>
+              <dd>
+                <ul>
+                  <li>MVVM</li><li>VIPER</li><li>Clean Swift</li><li>Coordinators</li><li>SOLID</li><li>Modular SPM</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="specs__row" data-reveal>
+              <dt><span>03</span>Persistence &amp; data</dt>
+              <dd>
+                <ul>
+                  <li>Core Data</li><li>Realm</li><li>SwiftData</li><li>Keychain</li><li>URLSession</li><li>WebSocket</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="specs__row" data-reveal>
+              <dt><span>04</span>Quality &amp; CI/CD</dt>
+              <dd>
+                <ul>
+                  <li>XCTest</li><li>UI Testing</li><li>TDD</li><li>Bitrise</li><li>Azure DevOps</li><li>Fastlane</li><li>GitHub Actions</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="specs__row" data-reveal>
+              <dt><span>05</span>Apple platform</dt>
+              <dd>
+                <ul>
+                  <li>In-App Purchases</li><li>StoreKit 2</li><li>Apple Wallet</li><li>Push (APNs)</li><li>Widgets</li><li>App Clips</li>
+                </ul>
+              </dd>
+            </div>
+            <div class="specs__row" data-reveal>
+              <dt><span>06</span>Collaboration</dt>
+              <dd>
+                <ul>
+                  <li>Agile / Scrum</li><li>Code review</li><li>Mentoring</li><li>JIRA</li><li>Figma hand-off</li><li>Trilingual delivery</li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
 
       <!-- ─── EXPERIENCE ───────────────────────────────────────────── -->
-      <section class="section section--experience" id="experience">
-        <div class="container">
-          <header class="section__header">
-            <span class="eyebrow">04 / Experience</span>
-            <h2 class="section__title">
-              A journey in craft.<br /><em>Still unfolding.</em>
-            </h2>
+      <section class="section journey" id="experience" data-chapter="Journey">
+        <div class="wrap">
+          <header class="head" data-reveal>
+            <p class="eyebrow">05 — Experience</p>
+            <h2 class="head__title">A decade in the craft, still shipping.</h2>
           </header>
 
-          <ol class="timeline">
-            <li class="timeline__item">
-              <div class="timeline__year">2024 — Now</div>
-              <details class="timeline__card">
+          <ol class="xp">
+            <li data-reveal>
+              <details name="xp" open>
                 <summary>
-                  <div class="timeline__role">
-                    <h3>Founder &amp; iOS Lead</h3>
-                    <span class="timeline__company">As Apps · Istanbul</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2024 — Now</span>
+                  <span class="xp__role">Founder &amp; iOS Lead</span>
+                  <span class="xp__co">As Apps · Istanbul</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Founded a privacy-first iOS product studio, shipping nine
-                    apps across the Apple ecosystem.
-                  </li>
-                  <li>
-                    Designed &amp; built Auth Kit, AS Cleaner, AS Remote,
-                    CronCraft, AS Rock ID, ASvpn, Receipt Rescue, FamilyBrief
-                    and PocketPOS end-to-end.
-                  </li>
-                  <li>
-                    Modular architecture, on-device AI, StoreKit 2, App Clips,
-                    and full CI/CD on every product.
-                  </li>
+                  <li>Founded a privacy-first iOS product studio, shipping nine apps across the Apple ecosystem.</li>
+                  <li>Designed &amp; built Auth Kit, AS Cleaner, AS Remote, CronCraft, AS Rock ID, ASvpn, Receipt Rescue, FamilyBrief and PocketPOS end-to-end.</li>
+                  <li>Modular architecture, on-device AI, StoreKit 2, App Clips, and full CI/CD on every product.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2024 — Now</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>Staff Lead Mobile Developer</h3>
-                    <span class="timeline__company">Set Yazılım</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2024 — Now</span>
+                  <span class="xp__role">Staff Lead Mobile Developer</span>
+                  <span class="xp__co">Set Yazılım</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Mobile development for Skechers Türkiye and So CHIC Takı
-                    &amp; Mücevher, available on iOS and Android.
-                  </li>
-                  <li>
-                    Native iOS development with Swift, SwiftUI, Combine; In-App
-                    Purchases &amp; Apple Wallet integration.
-                  </li>
-                  <li>
-                    Built an SDK for TV remote control with full WebSocket
-                    connection &amp; broadcast for Tizen and WebOS.
-                  </li>
-                  <li>
-                    Shipped an open-source crypto wallet app and stood up CI/CD
-                    on Bitrise.
-                  </li>
+                  <li>Mobile development for Skechers Türkiye and So CHIC Takı &amp; Mücevher, available on iOS and Android.</li>
+                  <li>Native iOS development with Swift, SwiftUI, Combine; In-App Purchases &amp; Apple Wallet integration.</li>
+                  <li>Built an SDK for TV remote control with full WebSocket connection &amp; broadcast for Tizen and WebOS.</li>
+                  <li>Shipped an open-source crypto wallet app and stood up CI/CD on Bitrise.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2023</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">Bragi · Skullcandy</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2023</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">Bragi · Skullcandy</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    End-to-end iOS development inside a 10-person Scrum team for
-                    the Skull-iQ companion app.
-                  </li>
-                  <li>
-                    Simulated headphone prototypes in-app, working alongside
-                    hardware and the Bragi SDK.
-                  </li>
-                  <li>
-                    Released new versions to the App Store with full review
-                    compliance.
-                  </li>
+                  <li>End-to-end iOS development inside a 10-person Scrum team for the Skull-iQ companion app.</li>
+                  <li>Simulated headphone prototypes in-app, working alongside hardware and the Bragi SDK.</li>
+                  <li>Released new versions to the App Store with full review compliance.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2023</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">NEC</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2023</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">NEC</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Native iOS app for user enrolment via passport, face &amp;
-                    fingerprint capture &mdash; used by US law enforcement
-                    agencies.
-                  </li>
-                  <li>
-                    Migrated UI to SwiftUI and built reusable biometric /
-                    security-scanner SDKs across multiple projects.
-                  </li>
+                  <li>Native iOS app for user enrolment via passport, face &amp; fingerprint capture, used by US law enforcement agencies.</li>
+                  <li>Migrated UI to SwiftUI and built reusable biometric / security-scanner SDKs across multiple projects.</li>
                   <li>Set up &amp; ran CI/CD on Azure DevOps Pipelines.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2021</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">ITSector</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2021</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">ITSector</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Built a mobile banking iOS app for Conexus (Canada) in Swift
-                    &amp; Objective-C.
-                  </li>
-                  <li>
-                    Led the iOS team, drove Agile rituals, ran code reviews,
-                    mentored juniors.
-                  </li>
+                  <li>Built a mobile banking iOS app for Conexus (Canada) in Swift &amp; Objective-C.</li>
+                  <li>Led the iOS team, drove Agile rituals, ran code reviews, mentored juniors.</li>
                   <li>Stood up CI/CD on Azure DevOps Pipelines.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2021</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">Jaaims</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2021</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">Jaaims</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Researched and integrated trading APIs into a scalable,
-                    info-identification iOS app.
-                  </li>
-                  <li>
-                    Directed software design across a multi-disciplinary team
-                    using Agile.
-                  </li>
+                  <li>Researched and integrated trading APIs into a scalable, info-identification iOS app.</li>
+                  <li>Directed software design across a multi-disciplinary team using Agile.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2020</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">Turkcell</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2020</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">Turkcell</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Maintained &amp; extended Turkcell's flagship Dijital
-                    Operatör iOS app in Swift &amp; Objective-C.
-                  </li>
-                  <li>
-                    Shipped new features, ran reviews, kept code standards high
-                    across a large team.
-                  </li>
+                  <li>Maintained &amp; extended Turkcell’s flagship Dijital Operatör iOS app in Swift &amp; Objective-C.</li>
+                  <li>Shipped new features, ran reviews, kept code standards high across a large team.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2019</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">Mobilion</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2019</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">Mobilion</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Led iOS delivery for several major-client apps in Swift
-                    &amp; UIKit.
-                  </li>
-                  <li>
-                    Integrated third-party APIs and mentored junior engineers.
-                  </li>
+                  <li>Led iOS delivery for several major-client apps in Swift &amp; UIKit.</li>
+                  <li>Integrated third-party APIs and mentored junior engineers.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2017</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>iOS Developer</h3>
-                    <span class="timeline__company">Goki</span>
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2017</span>
+                  <span class="xp__role">iOS Developer</span>
+                  <span class="xp__co">Goki</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Built a native iOS hotel-management app with Storyboard,
-                    MVVM &amp; RxSwift.
-                  </li>
-                  <li>
-                    Implemented IAP, payment integration and the full booking
-                    flow.
-                  </li>
+                  <li>Built a native iOS hotel-management app with Storyboard, MVVM &amp; RxSwift.</li>
+                  <li>Implemented IAP, payment integration and the full booking flow.</li>
                 </ul>
               </details>
             </li>
-            <li class="timeline__item">
-              <div class="timeline__year">2015</div>
-              <details class="timeline__card">
+            <li data-reveal>
+              <details name="xp">
                 <summary>
-                  <div class="timeline__role">
-                    <h3>Professor Assistant</h3>
-                    <span class="timeline__company"
-                      >Islamic Azad University</span
-                    >
-                  </div>
-                  <span class="timeline__expand" aria-hidden="true">+</span>
+                  <span class="xp__year">2015</span>
+                  <span class="xp__role">Professor Assistant</span>
+                  <span class="xp__co">Islamic Azad University</span>
+                  <span class="xp__plus" aria-hidden="true"></span>
                 </summary>
                 <ul>
-                  <li>
-                    Assisted with C++ &amp; C# courses; ran labs and tutoring
-                    sessions.
-                  </li>
+                  <li>Assisted with C++ &amp; C# courses; ran labs and tutoring sessions.</li>
                   <li>Helped students build solid programming foundations.</li>
                 </ul>
               </details>
             </li>
           </ol>
-        </div>
-      </section>
 
-      <!-- ─── EDUCATION ────────────────────────────────────────────── -->
-      <section class="section section--education" id="education">
-        <div class="container">
-          <header class="section__header">
-            <span class="eyebrow">05 / Education</span>
-            <h2 class="section__title"><em>Academic background.</em></h2>
-          </header>
-
-          <article class="education-card">
-            <div class="education-card__icon" aria-hidden="true">
-              <svg
-                viewBox="0 0 24 24"
-                width="28"
-                height="28"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.6"
-              >
-                <path d="M22 10L12 5 2 10l10 5 10-5z" />
-                <path d="M6 12v5c0 1 3 3 6 3s6-2 6-3v-5" />
-              </svg>
-            </div>
-            <div class="education-card__body">
+          <aside class="edu" id="education" data-reveal>
+            <p class="eyebrow">Education</p>
+            <div>
               <h3>Bachelor of Computer Engineering</h3>
-              <span class="education-card__org"
-                >Islamic Azad University · 2011 — 2015</span
-              >
-              <ul>
-                <li>Major in Software Engineering · GPA 3.5/4.0</li>
-                <li>Teaching assistant for programming courses</li>
-              </ul>
+              <p>Islamic Azad University · 2011 — 2015</p>
             </div>
-          </article>
+            <p>
+              Major in Software Engineering · GPA 3.5/4.0 · Teaching assistant
+              for programming courses
+            </p>
+          </aside>
         </div>
       </section>
     </main>
 
-    <!-- ─── FOOTER / CONTACT ─────────────────────────────────────── -->
-    <footer class="site-footer" id="contact">
-      <div class="container">
-        <div class="contact">
-          <span class="eyebrow">06 / Contact</span>
-          <h2 class="contact__title">
-            Let’s make<br /><em>something matter.</em>
-          </h2>
-          <p class="contact__lead">
-            Best for full-time senior &amp; lead roles, fractional engineering,
-            or building a beautiful app under the As Apps studio.
-          </p>
+    <!-- ─── CONTACT / FOOTER ─────────────────────────────────────── -->
+    <footer class="contact" id="contact" data-chapter="Contact">
+      <div class="wrap">
+        <p class="eyebrow">06 — Contact</p>
+        <h2 class="contact__title">
+          Have an app in mind?<br />Let’s ship it.
+        </h2>
+        <p class="contact__lead">
+          Best for full-time senior &amp; lead roles, fractional engineering, or
+          building a beautiful app under the As Apps studio.
+        </p>
 
-          <div class="contact__channels">
-            <a
-              href="mailto:amir.daliri@icloud.com"
-              class="contact__primary"
-              data-magnet
-            >
-              <span class="contact__label">Email</span>
-              <span class="contact__value">amir.daliri@icloud.com</span>
-            </a>
-
-            <ul class="socials">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/amirdalirii/"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="LinkedIn"
-                  data-magnet
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8.25h4.56V23H.22V8.25zm7.5 0h4.37v2.02h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 7v8.36h-4.56V15.4c0-1.7-.03-3.9-2.38-3.9-2.39 0-2.75 1.86-2.75 3.78V23H7.72V8.25z"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/AmirDaliri"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="GitHub"
-                  data-magnet
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.87-1.54-3.87-1.54-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.16 1.18a10.97 10.97 0 0 1 5.76 0c2.2-1.49 3.16-1.18 3.16-1.18.62 1.59.23 2.76.11 3.05.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.13 0 1.54-.01 2.78-.01 3.16 0 .31.21.67.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://x.com/AgoodAmir"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="X (Twitter)"
-                  data-magnet
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M18.244 2H21l-6.52 7.45L22.5 22h-6.78l-4.94-6.46L4.96 22H2.2l6.99-7.99L1.5 2h6.92l4.46 5.91L18.244 2zm-1.19 18h1.65L7.06 4h-1.7l11.694 16z"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://asapps.studio"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label="As Apps Studio"
-                  data-magnet
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.6"
-                    aria-hidden="true"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <path
-                      d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="signature" aria-hidden="true">
-          <span>AMIR</span><em>DALIRI</em><span class="signature__star">✳</span>
-        </div>
-        <div class="site-footer__bottom">
-          <span
-            >© <span data-year>2025</span> Amir Daliri. Built in Istanbul, with
-            too much coffee.</span
+        <div class="contact__mail">
+          <a href="mailto:amir.daliri@icloud.com" class="contact__email"
+            >amir.daliri@icloud.com</a
           >
-          <span>Designed with intent. Built for the web.</span>
+          <button type="button" class="contact__copy" data-copy="amir.daliri@icloud.com">
+            <span data-copy-label>Copy address</span>
+          </button>
+        </div>
+
+        <ul class="contact__links">
+          <li><a href="https://www.linkedin.com/in/amirdalirii/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://github.com/AmirDaliri" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://x.com/AgoodAmir" target="_blank" rel="noopener">X <span aria-hidden="true">↗</span></a></li>
+          <li><a href="https://asapps.studio" target="_blank" rel="noopener">asapps.studio <span aria-hidden="true">↗</span></a></li>
+        </ul>
+
+        <div class="contact__foot">
+          <span>© <span data-year>2026</span> Amir Daliri</span>
+          <span>Built in Istanbul, with too much coffee.</span>
+          <a href="#top">Back to top ↑</a>
         </div>
       </div>
+      <p class="signature" aria-hidden="true">Amir Daliri</p>
     </footer>
 
-    <nav class="chapter-dock" aria-label="Page chapters" hidden>
-      <a class="chapter-dock__home" href="#top" aria-label="Back to top">AD</a
-      ><span class="chapter-dock__divider" aria-hidden="true"></span
-      ><a href="#studio">Studio</a><a href="#work">Work</a
-      ><a href="#experience">Journey</a
-      ><a class="chapter-dock__contact" href="#contact"
-        >Let’s talk <span aria-hidden="true">↗</span></a
-      >
-    </nav>
-    <script src="js/main.js" defer></script>
+    <script src="js/site.js" defer></script>
   </body>
 </html>
