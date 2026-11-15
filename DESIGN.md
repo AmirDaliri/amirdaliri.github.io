@@ -1,27 +1,25 @@
-# Cinematic portfolio — director’s cut
+# Portfolio — "One Home Screen"
 
-Original eclipse artwork generated with the built-in image-generation tool. Production asset: `img/cinematic/eclipse.jpg` (approximately 310 KB). Product artwork comes from the existing app assets and the official FamilyBrief and PocketPOS websites.
+The portfolio is a Home Screen. The hero is a CSS-built iPhone whose icons are the real As Apps products; tapping one opens an App Store-style page inside the phone. Navigation is a Dynamic Island that names the current chapter, shows scroll progress, and expands into the menu.
 
-## Final artwork prompt
+## Files
 
-Use case: stylized-concept. Asset type: cinematic website hero background, ultrawide landscape 16:9. Create a breathtaking premium science-fiction film still of a monumental dark eclipsed celestial sphere, centered horizontally and slightly above the middle, encircled by an incredibly thin brilliant molten copper and ivory corona, with a sweeping gravitational accretion disk of fine luminous copper filaments arcing horizontally across the frame and bending upward behind the sphere. The black circle occupies 45 percent of the frame width. Almost black background, deep obsidian void, delicate volumetric smoke and sparse tiny distant stars. Astronomically monumental, physically rich, elegant, highly detailed IMAX VFX cinematography, sophisticated warm copper/ivory highlights against absolute charcoal black. Broad composition with deep dark quiet space across lower third for large cream website typography. Extremely sharp fine light filaments, subtle lens bloom, tactile cosmic dust, dramatic contrast. This is an art image only, no website UI, no typography, no letters, no labels, no logos, no watermark. Avoid colorful nebula, purple, blue, cartoon, ordinary planet texture. Output one polished landscape artwork.
+- `index.html` — all content.
+- `css/site.css` — styles. Tokens at the top (`--ink`, `--paper`, `--swift`, fonts).
+- `js/site.js` — interactions, no dependencies. The `APPS` object at the top holds what the phone shows for each product.
 
-## Interaction direction
+## Design decisions
 
-Full-screen opening with a slow camera move, a moving corona, particle depth, and pointer response. Native scrolling drives gentle background and product parallax. Motion can be disabled and respects the system reduced-motion preference. The work collection begins with six projects and expands on request; category filters retain every matching project. Career history uses native keyboard-accessible disclosures.
+- **Palette:** ink `#0a0a0c`, paper `#f2f0ea`, one accent: Swift orange `#f05138`. Featured products get their own colour worlds.
+- **Type:** Bricolage Grotesque (condensed, heavy) for display, Geist for text, Geist Mono for labels.
+- **Rhythm:** dark hero and studio, light client-work index, dark specs and experience, orange contact.
+- **Motion:** phone unlocks on load, icons zoom open, pointer tilt, stacking product cards, word-by-word statement, cursor preview on client work. Everything respects `prefers-reduced-motion`; the page works without JavaScript.
+
+## Editing
+
+- Add a studio app: icon in `img/asapps/`, a button in `.ios-grid`, an entry in `APPS`, a card in `.catalog__grid`.
+- Add client work: one `<li class="job">` in `#work` with `data-cat` and `data-preview`; update the filter counts.
 
 ## Local preview
 
-Run `python3 -m http.server 4321` and open `http://localhost:4321/`. No build step or new runtime dependencies. All work remains uncommitted for review.
-
-## Portfolio connection
-
-The opening now pairs the eclipse with actual PocketPOS and AS Rock ID screens and an explicit iOS engineering headline. On desktop, the AS Rock ID artwork travels into its showcase during native scrolling. On phones and with motion disabled, both screen placements remain static. The studio follows the opening directly; the client credits and introduction follow the complete product collection.
-
-## Interaction polish
-
-The featured scenes include a compact purpose / engineering / platform strip. Fine-pointer movement adds restrained lighting and product depth; reduced motion and the motion toggle disable it. A compact chapter dock appears after the opening and marks the current section. The closing typographic signature anchors the portfolio to Amir’s identity. Native scrolling, normal cursors, existing app links, and keyboard navigation are preserved.
-
-## Motion performance pass
-
-The screen handoff uses a fixed 960-pixel image layer with translation and uniform scaling, instead of animating width and height. Layout is measured on resize, font/image load, and content-size changes. Scroll and pointer updates share a single on-demand animation frame scheduler with time-based pointer easing. Dust is painted once and moved as a layer. Animated blur and backdrop blur were removed from moving surfaces; offscreen and background-page animations pause.
+`python3 -m http.server 4321`, then open `http://localhost:4321/`.
